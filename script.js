@@ -255,43 +255,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (contactForm && contactSuccess) {
     contactForm.addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        grecaptcha.ready(() => {
-            console.log("reCAPTCHA v3 ready");
-            grecaptcha.execute('6LehLHErAAAAAL5yifEXTRkomAlbaWDvQ6VUqtS6', { action: 'submit' }).then(token => {
-                console.log("reCAPTCHA token:", token);
-                const formData = new FormData(contactForm);
-                formData.append('g-recaptcha-response', token);
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = "Sending...";
-
-                fetch(contactForm.action, {
-                    method: "POST",
-                    body: formData,
-                    headers: {
-                    'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        contactSuccess.style.display = "block";
-                        contactForm.reset();
-                    } else {
-                        alert("Sorry, there was a problem sending your message. Please try again later.");
-                    }
-                })
-                .catch(() => {
-                    alert("Sorry, there was a problem sending your message. Please try again later.");
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                });
-            });
-        });
+      e.preventDefault();
+      grecaptcha.execute();
     });
   }
 });
+
+function onReCaptchaSuccess(token) {
+  const contactForm = document.getElementById("contactForm");
+  const contactSuccess = document.getElementById("contactSuccess");
+  const formData = new FormData(contactForm);
+  formData.append('g-recaptcha-response', token);
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = "Sending...";
+
+  fetch(contactForm.action, {
+    method: "POST",
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      contactSuccess.style.display = "block";
+      contactForm.reset();
+    } else {
+      alert("Sorry, there was a problem sending your message. Please try again later.");
+    }
+  })
+  .catch(() => {
+    alert("Sorry, there was a problem sending your message. Please try again later.");
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+  });
+}
