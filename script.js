@@ -293,6 +293,7 @@ function onReCaptchaSuccess(token) {
   });
 }
 
+/* show reCaptcha badge when scrolled to Contact section */
 const contactSection = document.getElementById('contact');
 function toggleRecaptchaBadge() {
   if (!contactSection) return;

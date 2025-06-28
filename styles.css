@@ -1064,28 +1064,12 @@ html {
 
 /* ------------------- GRECAPTCHA BADGE ------------------- */
 
-/* Invisible reCAPTCHA badge hidden by default, collapsible until hover */
+/* Hide the default reCAPTCHA badge */
 .grecaptcha-badge {
-  position: fixed !important;
-  right: 20px !important;
-  bottom: 20px !important;
-  left: auto !important;
-  z-index: 9999 !important;
-  width: 40px !important;
-  overflow: hidden !important;
-  transition: width 0.3s ease, opacity 0.3s ease !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  display: none !important;
 }
 
-/* Show and enable badge when contact section is in view */
-.show-recaptcha .grecaptcha-badge {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-
-/* Expand badge on hover, only when .show-recaptcha is present */
-.show-recaptcha .grecaptcha-badge:hover {
-  width: 256px !important;
-  overflow: visible !important;
+/* Only show the badge when body has the `show-recaptcha` class */
+body.show-recaptcha .grecaptcha-badge {
+  display: block !important;
 }
