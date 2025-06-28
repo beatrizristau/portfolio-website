@@ -1084,8 +1084,8 @@ html {
   pointer-events: auto !important;
 }
 
-/* Expand badge on hover */
-.grecaptcha-badge:hover {
+/* Expand badge on hover, only when .show-recaptcha is present */
+.show-recaptcha .grecaptcha-badge:hover {
   width: 256px !important;
   overflow: visible !important;
 }

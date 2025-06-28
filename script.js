@@ -293,18 +293,15 @@ function onReCaptchaSuccess(token) {
   });
 }
 
-/* Only display the reCAPTCHA badge when the contact section is visible */
-const recaptchaBadgeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.body.classList.add('show-recaptcha');
-    } else {
-      document.body.classList.remove('show-recaptcha');
-    }
-  });
-}, { threshold: 0.1 });
-
 const contactSection = document.getElementById('contact');
-if (contactSection) {
-  recaptchaBadgeObserver.observe(contactSection);
+function toggleRecaptchaBadge() {
+  if (!contactSection) return;
+  const rect = contactSection.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    document.body.classList.add('show-recaptcha');
+  } else {
+    document.body.classList.remove('show-recaptcha');
+  }
 }
+window.addEventListener('scroll', toggleRecaptchaBadge);
+toggleRecaptchaBadge();
