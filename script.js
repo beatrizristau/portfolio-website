@@ -255,46 +255,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (contactForm && contactSuccess) {
     contactForm.addEventListener("submit", function(e) {
-      e.preventDefault();
+        e.preventDefault();
 
-      // Check if reCAPTCHA is completed
-      const recaptchaResponse = contactForm.querySelector('[name="g-recaptcha-response"]');
-      if (!recaptchaResponse || !recaptchaResponse.value) {
-        alert("Please complete the reCAPTCHA.");
-        return;
-      }
+        grecaptcha.ready(() => {
+            grecaptcha.execute('6LehLHErAAAAAL5yifEXTRkomAlbaWDvQ6VUqtS6', { action: 'submit' }).then(token => {
+            const formData = new FormData(contactForm);
+            formData.append('g-recaptcha-response', token);
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "Sending...";
 
-      const formData = new FormData(contactForm);
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = "Sending...";
-
-      fetch(contactForm.action, {
-        method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then(response => {
-        if (response.ok) {
-          contactSuccess.style.display = "block";
-          contactForm.reset();
-          // Reset reCAPTCHA widget
-          if (window.grecaptcha) grecaptcha.reset();
-        } else {
-          alert("Sorry, there was a problem sending your message. Please try again later.");
-        }
-      })
-      .catch(() => {
-        alert("Sorry, there was a problem sending your message. Please try again later.");
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-      });
+                fetch(contactForm.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                    'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        contactSuccess.style.display = "block";
+                        contactForm.reset();
+                    } else {
+                        alert("Sorry, there was a problem sending your message. Please try again later.");
+                    }
+                })
+                .catch(() => {
+                    alert("Sorry, there was a problem sending your message. Please try again later.");
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                });
+            });
+        });
     });
   }
 });
