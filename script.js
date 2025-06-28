@@ -234,31 +234,6 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
-/* Contact Form */
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault()
-
-  const submitBtn = contactForm.querySelector('button[type="submit"]')
-  const originalText = submitBtn.innerHTML
-
-  // Show loading state
-  submitBtn.innerHTML = "Sending..."
-  submitBtn.disabled = true
-
-  // Simulate form submission
-  setTimeout(() => {
-    // Show success message
-    alert("Message sent successfully! I'll get back to you soon.")
-
-    // Reset form
-    contactForm.reset()
-
-    // Reset button
-    submitBtn.innerHTML = originalText
-    submitBtn.disabled = false
-  }, 1500)
-})
-
 /* allows users to close the mobile menu by pressing the escape key */
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
@@ -271,4 +246,46 @@ document.addEventListener("keydown", (e) => {
 document.querySelector('.nav-brand-link').addEventListener('click', function(e) {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* Display message after contact form is submitted */
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.getElementById("contactForm");
+  const contactSuccess = document.getElementById("contactSuccess");
+
+  if (contactForm && contactSuccess) {
+    contactForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Sending...";
+
+        fetch(contactForm.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+            'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+            contactSuccess.style.display = "block";
+            contactForm.reset();
+            } else {
+            alert("Sorry, there was a problem sending your message. Please try again later.");
+            }
+        })
+        .catch(() => {
+            alert("Sorry, there was a problem sending your message. Please try again later.");
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        });
+    });
+  }
 });
