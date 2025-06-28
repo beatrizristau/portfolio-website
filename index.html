@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatriz Ristau</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" id="floatingNav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#" class="nav-brand-link">
+                    <span class="brand-gradient">Beatriz</span><span class="brand-white">Ristau</span>
+                </a>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <!-- Toggle only for Mobile layout -->
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#skills" class="mobile-link">Skills</a>
+            <a href="#projects" class="mobile-link">Projects</a>
+            <a href="#experience" class="mobile-link">Experience</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Scroll Bar Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Intro Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="section-badge">
+                        <span>Software Engineer</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-line">Hi, I'm</span>
+                        <span class="title-gradient">Beatriz Ristau</span>
+                    </h1>
+                    <p class="hero-description">
+                        I build robust backend systems with Java & Spring Boot, crafting scalable digital experiences through clean code and innovative solutions.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" id="viewProjectsBtn">
+                            View Projects <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="btn btn-outline" id="contactMeBtn">Contact Me</button>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/beatrizristau" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/beatriz-ristau" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:beatrizristau.dev@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <canvas id="heroCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">My background and journey</div>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="imgs/beatriz_ristau_pic.jpg" alt="Beatriz Ristau">
+                </div>
+                <div class="about-text">
+                    <div class="glass-card">
+                        <p>I am a passionate Software Developer with a solid foundation in designing, developing, and
+deploying robust backend applications. I specialize in Java, Spring Boot, and object-oriented design, with hands-on experience building scalable backend services and developing RESTful APIs.</p>
+                        
+                        <p>My background also includes working with relational databases like PostgreSQL and Spanner DB, and deploying solutions in cloud environments such as Google Cloud Platform (GCP). I’m driven by clean code, automation, and performance.</p>
+                        
+                        <p>I am eager to contribute to innovative projects and am continuously looking to learn new technologies and concepts to improve as a developer - currently learning React to expand my full-stack capabilities, and exploring AI agents to deepen my understanding of intelligent, autonomous systems.</p>
+                        
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Availability</span>
+                                <span class="info-value status-available">Open to new opportunities</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Technologies I work with</div>
+                <h2 class="section-title">My Skills</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-card" data-skill="90">
+                    <h3>Sample</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-card" data-skill="85">
+                    <h3>Sample</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="85"></div>
+                    </div>
+                    <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-card" data-skill="95">
+                    <h3>Sample</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95"></div>
+                    </div>
+                    <span class="skill-percentage">95%</span>
+                </div>
+                <div class="skill-card" data-skill="90">
+                    <h3>Sample</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-card" data-skill="80">
+                    <h3>Sample</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80"></div>
+                    </div>
+                    <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-card" data-skill="95">
+                    <h3>Sample</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95"></div>
+                    </div>
+                    <span class="skill-percentage">95%</span>
+                </div>
+                <div class="skill-card" data-skill="90">
+                    <h3>Sample</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-card" data-skill="75">
+                    <h3>Sample</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="75"></div>
+                    </div>
+                    <span class="skill-percentage">75%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Some of my recent work</div>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="E-commerce Platform">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                                <a href="https://example.com" target="_blank" class="project-link primary">
+                                    Live Demo <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>A full-stack e-commerce platform built with Next.js, Stripe, and Prisma.</p>
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Prisma</span>
+                            <span class="tag">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Task Management App">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                                <a href="https://example.com" target="_blank" class="project-link primary">
+                                    Live Demo <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>A collaborative task management application with real-time updates.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Redux</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="AI Content Generator">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                                <a href="https://example.com" target="_blank" class="project-link primary">
+                                    Live Demo <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Content Generator</h3>
+                        <p>An AI-powered content generation tool using OpenAI's GPT models.</p>
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span>
+                            <span class="tag">OpenAI API</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">My professional journey</div>
+                <h2 class="section-title">Work Experience</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="timeline">    
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="glass-card">
+                            <h3>Software Engineer II</h3>
+                            <div class="timeline-meta">
+                                American Express | April 2023 - Present
+                            </div>
+                            <p>Developed and maintained Amex Big Data Platform infrastructure, orchestrating GCP Airflow DAGs, executing Dataflow jobs, and using Pub/Sub for event-driven, scalable BigQuery data pipelines.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="glass-card">
+                            <h3>Java Developer Trainee</h3>
+                            <div class="timeline-meta">
+                                Apolis | July 2022 - March 2023
+                            </div>
+                            <p>Completed intensive Java training, translating requirements into development plans.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Let's work together</div>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <div class="glass-card">
+                        <h3 class="contact-h3">Send Me a Message</h3>
+                        <form 
+                            class="contact-form" 
+                            id="contactForm"
+                            action="https://submit.formspark.io/9yjG19oIo"
+                            method="POST"
+                            data-formpark="true"
+                        >
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="email" placeholder="Your Email" required>
+                            <input type="text" placeholder="Subject" required>
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+
+                            <div class="g-recaptcha" data-sitekey="6LdnInErAAAAAPxLHY_JvXVkBO8Z6YwkMsLUMMEz"></div>
+                            <button type="submit" class="btn btn-primary">
+                                Send Message <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-gradient">Beatriz</span><span class="brand-white">Ristau</span>
+                    <p>&copy; 2025 Beatriz Ristau. All rights reserved.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/beatrizristau" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/beatriz-ristau" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:beatrizristau.dev@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
