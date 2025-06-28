@@ -1062,11 +1062,30 @@ html {
   color: white;
 }
 
-/* Ensure reCAPTCHA badge is always fixed at bottom right */
+/* ------------------- GRECAPTCHA BADGE ------------------- */
+
+/* Invisible reCAPTCHA badge hidden by default, collapsible until hover */
 .grecaptcha-badge {
-  z-index: 9999 !important;
+  position: fixed !important;
   right: 20px !important;
   bottom: 20px !important;
   left: auto !important;
-  position: fixed !important;
+  z-index: 9999 !important;
+  width: 40px !important;
+  overflow: hidden !important;
+  transition: width 0.3s ease, opacity 0.3s ease !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Show and enable badge when contact section is in view */
+.show-recaptcha .grecaptcha-badge {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Expand badge on hover */
+.grecaptcha-badge:hover {
+  width: 256px !important;
+  overflow: visible !important;
 }
