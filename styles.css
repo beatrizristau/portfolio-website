@@ -1061,3 +1061,12 @@ html {
   background: rgba(139, 92, 246, 0.3);
   color: white;
 }
+
+/* Ensure reCAPTCHA badge is always fixed at bottom right */
+.grecaptcha-badge {
+  z-index: 9999 !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  left: auto !important;
+  position: fixed !important;
+}
