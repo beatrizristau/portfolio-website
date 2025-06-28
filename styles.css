@@ -240,10 +240,6 @@ body {
   font-size: 0.9rem;
 }
 
-.nav-links a:last-child {
-  color: var(--text-primary);
-}
-
 .nav-links a:hover {
   color: var(--text-primary);
 }
@@ -994,6 +990,14 @@ body {
 
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+
+  .scroll-indicator {
+    display: none;
   }
 }
 

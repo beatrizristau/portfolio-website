@@ -242,10 +242,15 @@ document.addEventListener("keydown", (e) => {
   }
 })
 
-/* If user clicks on the brand, it redirects user to the top of the page again */
+/* If user clicks on the brand, it redirects user to the top of the page again and closes mobile menu if open */
 document.querySelector('.nav-brand-link').addEventListener('click', function(e) {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Close mobile menu if open
+  if (mobileMenu.classList.contains('active')) {
+    mobileMenu.classList.remove('active');
+    navToggle.querySelector('i').className = 'fas fa-bars';
+  }
 });
 
 /* Custom Formspree AJAX submit for contact form */
