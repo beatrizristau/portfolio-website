@@ -1041,6 +1041,13 @@ body {
   }
 }
 
+/* Hide hero canvas on devices up to tablet/desktop breakpoint */
+@media (max-width: 1024px) {
+  .hero-visual {
+    display: none !important;
+  }
+}
+
 /* Animations */
 @keyframes pulse {
   0%,
