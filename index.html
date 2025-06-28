@@ -346,14 +346,13 @@ deploying robust backend applications. I specialize in Java, Spring Boot, and ob
                         <form 
                             class="contact-form" 
                             id="contactForm"
-                            action="https://submit-form.com/9yjG19oIo"
+                            action="https://formspree.io/f/mqabwjgv"
                             method="POST"
                         >
-                            <input type="text" placeholder="Your Name" required>
-                            <input type="email" placeholder="Your Email" required>
-                            <input type="text" placeholder="Subject" required>
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <input type="text" name="subject" placeholder="Subject" required>
+                            <textarea placeholder="Your Message" name="message" rows="5" required></textarea>
 
                             <button type="submit" class="btn btn-primary">
                                 Send Message <i class="fas fa-paper-plane"></i>
@@ -387,16 +386,7 @@ deploying robust backend applications. I specialize in Java, Spring Boot, and ob
             </div>
         </div>
     </footer>
-
-    <!-- Invisible reCAPTCHA widget positioned globally -->
-    <div class="g-recaptcha"
-         data-sitekey="6LexLXErAAAAAJxSbs3mmmoJF8ISH69DV2r2M811"
-         data-size="invisible"
-         data-badge="bottomright"
-         data-callback="onReCaptchaSuccess">
-    </div>
-
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
     <script src="script.js"></script>
 </body>
 </html>

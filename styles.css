@@ -1062,14 +1062,3 @@ html {
   color: white;
 }
 
-/* ------------------- GRECAPTCHA BADGE ------------------- */
-
-/* Hide the default reCAPTCHA badge */
-.grecaptcha-badge {
-  display: none !important;
-}
-
-/* Only show the badge when body has the `show-recaptcha` class */
-body.show-recaptcha .grecaptcha-badge {
-  display: block !important;
-}

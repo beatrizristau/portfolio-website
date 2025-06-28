@@ -248,61 +248,31 @@ document.querySelector('.nav-brand-link').addEventListener('click', function(e) 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-/* Display message after contact form is submitted */
+/* Custom Formspree AJAX submit for contact form */
 document.addEventListener("DOMContentLoaded", () => {
-  const contactForm = document.getElementById("contactForm");
-  const contactSuccess = document.getElementById("contactSuccess");
+    if (contactForm) {
+        contactForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
 
-  if (contactForm && contactSuccess) {
-    contactForm.addEventListener("submit", function(e) {
-      e.preventDefault();
-      grecaptcha.execute();
-    });
-  }
-});
+            const formData = new FormData(contactForm);
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                    Accept: "application/json",
+                    },
+                });
 
-function onReCaptchaSuccess(token) {
-  const contactForm = document.getElementById("contactForm");
-  const contactSuccess = document.getElementById("contactSuccess");
-  const formData = new FormData(contactForm);
-  formData.append('g-recaptcha-response', token);
-  const submitBtn = contactForm.querySelector('button[type="submit"]');
-  const originalText = submitBtn.innerHTML;
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = "Sending...";
-
-  fetch(contactForm.action, {
-    method: "POST",
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(response => {
-    if (response.ok) {
-      contactSuccess.style.display = "block";
-      contactForm.reset();
-    } else {
-      alert("Sorry, there was a problem sending your message. Please try again later.");
+                if (response.ok) {
+                    alert("Thank you! Your message was sent. I'll reply soon.");
+                    contactForm.reset();
+                } else {
+                    alert("Oops! There was a problem submitting your form. Please try again later.");
+                }
+            } catch (error) {
+                alert("Network error. Please try again later.");
+            }
+        });
     }
-  })
-  .catch(() => {
-    alert("Sorry, there was a problem sending your message. Please try again later.");
-  })
-  .finally(() => {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalText;
-  });
-}
-
-/* show reCaptcha badge when scrolled to Contact section */
-const contactSection = document.getElementById('contact');
-function toggleRecaptchaBadge() {
-  if (!contactSection) return;
-  const rect = contactSection.getBoundingClientRect();
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
-    document.body.classList.add('show-recaptcha');
-  } else {
-    document.body.classList.remove('show-recaptcha');
-  }
-}
-window.addEventListener('scroll', toggleRecaptchaBadge);
-toggleRecaptchaBadge();
+})
