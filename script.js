@@ -258,13 +258,15 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         grecaptcha.ready(() => {
+            console.log("reCAPTCHA v3 ready");
             grecaptcha.execute('6LehLHErAAAAAL5yifEXTRkomAlbaWDvQ6VUqtS6', { action: 'submit' }).then(token => {
-            const formData = new FormData(contactForm);
-            formData.append('g-recaptcha-response', token);
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = "Sending...";
+                console.log("reCAPTCHA token:", token);
+                const formData = new FormData(contactForm);
+                formData.append('g-recaptcha-response', token);
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = "Sending...";
 
                 fetch(contactForm.action, {
                     method: "POST",

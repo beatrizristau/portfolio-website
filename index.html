@@ -355,6 +355,13 @@ deploying robust backend applications. I specialize in Java, Spring Boot, and ob
                             <input type="text" placeholder="Subject" required>
                             <textarea placeholder="Your Message" rows="5" required></textarea>
 
+                            <div class="g-recaptcha"
+                                 data-sitekey="6LexLXErAAAAAJxSbs3mmmoJF8ISH69DV2r2M811"
+                                 data-size="invisible"
+                                 data-badge="bottomright"
+                                 data-callback="onReCaptchaSuccess">
+                            </div>
+
                             <button type="submit" class="btn btn-primary">
                                 Send Message <i class="fas fa-paper-plane"></i>
                             </button>
@@ -391,7 +398,7 @@ deploying robust backend applications. I specialize in Java, Spring Boot, and ob
         </div>
     </footer>
 
-    <script src="https://www.google.com/recaptcha/api.js?render=6LehLHErAAAAAL5yifEXTRkomAlbaWDvQ6VUqtS6" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="script.js"></script>
 </body>
 </html>
