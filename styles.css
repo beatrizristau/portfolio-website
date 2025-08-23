@@ -953,6 +953,10 @@ body {
   .hero-visual {
     display: none;
   }
+
+  .social-links {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
