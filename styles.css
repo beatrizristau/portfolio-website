@@ -461,7 +461,6 @@ body {
 }
 
 /* ------------------- ABOUT SECTION ------------------- */
-
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -523,10 +522,9 @@ body {
 }
 
 /* ------------------- SKILLS SECTION ------------------- */
-
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -567,30 +565,76 @@ body {
   font-size: 1.1rem;
 }
 
-.skill-bar {
-  width: 100%;
-  height: 0.5rem;
-  background: var(--border-color);
-  border-radius: 0.25rem;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.skill-progress {
-  height: 100%;
+.card-title h3 {
+  margin: 0;
+}
+
+.card-title .icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  /* Use a faded version of the current icon color */
+  background: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.card-title .icon-badge i {
+  line-height: 1;
   background: var(--primary-gradient);
-  border-radius: 0.25rem;
-  width: 0%;
-  transition: width 1s ease;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
-.skill-percentage {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+/* Minimal fade-in for skill cards */
+.skill-card {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.skill-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-list {
+  list-style: none;
+  margin-top: 0.5rem;
+  text-align: left;
+  padding-left: 0;
+}
+
+.skill-list li {
+  position: relative;
+  margin-bottom: 0.5rem;
+  padding-left: 2.50rem;
+  color: var(--text-primary);
+}
+
+.skill-list li::before {
+  content: "";
+  position: absolute;
+  left: 1.0rem;
+  top: 0.7em;
+  transform: translateY(-50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--primary-gradient);
 }
 
 /* ------------------- PROJECTS SECTION ------------------- */
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -714,7 +758,6 @@ body {
 }
 
 /* ------------------- EXPERIENCE SECTION ------------------- */
-
 .timeline {
   position: relative;
   max-width: 800px;
@@ -815,7 +858,6 @@ body {
 }
 
 /* ------------------- CONTACT SECTION ------------------- */
-
 .contact-content {
   display: flex;
   justify-content: center;
@@ -877,7 +919,6 @@ body {
 }
 
 /* ------------------- FOOTER SECTION ------------------- */
-
 .footer {
   border-top: 1px solid var(--border-color);
   padding: 3rem 0;
@@ -929,6 +970,10 @@ body {
     flex-direction: column;
     align-items: center;
   }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ------------------- RESPONSIVE DESIGN ------------------- */
@@ -974,7 +1019,7 @@ body {
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .projects-grid {

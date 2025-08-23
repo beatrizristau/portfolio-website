@@ -200,39 +200,43 @@ const observerOptions = {
   rootMargin: "0px 0px -50px 0px",
 }
 
-/* skills percentage progress bar animation on load */
+/* skills section animation on load */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("visible")
-
-      // Animate skill bars
-      if (entry.target.classList.contains("skill-card")) {
-        const progressBar = entry.target.querySelector(".skill-progress")
-        const width = progressBar.getAttribute("data-width")
-        setTimeout(() => {
-          progressBar.style.width = width + "%"
-        }, 200)
-      }
+      entry.target.classList.add("visible");
     }
-  })
-}, observerOptions)
+  });
+}, observerOptions);
 
 /* Observe elements for animation */
 document.addEventListener("DOMContentLoaded", () => {
   // Add fade-in class to elements
-  const animatedElements = document.querySelectorAll(".glass-card, .skill-card, .project-card, .section-header")
+  const animatedElements = document.querySelectorAll(".glass-card, .project-card, .section-header");
   animatedElements.forEach((el) => {
     el.classList.add("fade-in")
     observer.observe(el)
   })
-
-  // Animate skill bars
-  const skillCards = document.querySelectorAll(".skill-card")
-  skillCards.forEach((card) => {
-    observer.observe(card)
-  })
 })
+
+/* Staggered reveal for skill cards when the skills section enters view */
+const skillsSection = document.getElementById("skills");
+if (skillsSection) {
+  const skillsObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const cards = skillsSection.querySelectorAll(".skill-card");
+        cards.forEach((card, idx) => {
+          setTimeout(() => {
+            card.classList.add("visible");
+          }, idx * 120); // small stagger between cards
+        });
+        obs.unobserve(skillsSection); // run once
+      }
+    });
+  }, { threshold: 0.2 });
+  skillsObserver.observe(skillsSection);
+}
 
 /* allows users to close the mobile menu by pressing the escape key */
 document.addEventListener("keydown", (e) => {
