@@ -9,7 +9,7 @@ This is my personal portfolio website. I’m a software engineer specializing in
 - Responsive design for desktop and mobile
 - Animated hero section with canvas particles (hidden on mobile)
 - Floating navigation bar and mobile menu
-- Skills section with animated progress bars
+- Skills section with categorized cards
 - Projects showcase with overlays and external links
 - Timeline-style experience section
 - AJAX-powered contact form (Formspree) with alert feedback
