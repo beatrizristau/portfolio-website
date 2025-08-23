@@ -1026,17 +1026,6 @@ body {
   }
 }
 
-/* Animations */
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -1058,4 +1047,3 @@ html {
   background: rgba(139, 92, 246, 0.3);
   color: white;
 }
-
