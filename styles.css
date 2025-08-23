@@ -901,6 +901,36 @@ body {
   gap: 1rem;
 }
 
+/* Hide hero canvas on devices up to tablet/desktop breakpoint */
+@media (max-width: 1024px) {
+  .hero-visual {
+    display: none !important;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .contact-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /* ------------------- RESPONSIVE DESIGN ------------------- */
 @media (max-width: 768px) {
   .nav-links {
@@ -925,6 +955,7 @@ body {
     flex-direction: column;
     align-items: center;
   }
+
   .contact-form-container {
     max-width: 100%;
   }
@@ -992,13 +1023,6 @@ body {
 
   .hero-visual {
     display: none;
-  }
-}
-
-/* Hide hero canvas on devices up to tablet/desktop breakpoint */
-@media (max-width: 1024px) {
-  .hero-visual {
-    display: none !important;
   }
 }
 
