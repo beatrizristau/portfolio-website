@@ -1,5 +1,4 @@
 /* ------------------- GLOBAL STYLES ------------------- */
-
 * {
   margin: 0;
   padding: 0;
@@ -27,7 +26,6 @@ body {
 }
 
 /* ------------------- COMMON STYLES ------------------- */
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -446,35 +444,6 @@ body {
   border-radius: 1rem;
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: bounce 2s infinite;
-}
-
-.scroll-mouse {
-  width: 1.5rem;
-  height: 2.5rem;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 1rem;
-  position: relative;
-}
-
-.scroll-mouse::before {
-  content: "";
-  position: absolute;
-  top: 0.25rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0.25rem;
-  height: 0.25rem;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  animation: scroll-dot 2s infinite;
-}
-
 @keyframes bounce {
   0%,
   20%,
@@ -488,17 +457,6 @@ body {
   }
   60% {
     transform: translateX(-50%) translateY(-5px);
-  }
-}
-
-@keyframes scroll-dot {
-  0% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(1rem);
   }
 }
 
@@ -995,10 +953,6 @@ body {
   .hero-visual {
     display: none;
   }
-
-  .scroll-indicator {
-    display: none;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1033,10 +987,6 @@ body {
   }
 
   .hero-visual {
-    display: none;
-  }
-
-  .scroll-indicator {
     display: none;
   }
 }
