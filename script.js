@@ -1,287 +1,164 @@
-/* DOM Elements */
-const floatingNav = document.getElementById("floatingNav")
-const navToggle = document.getElementById("navToggle")
-const mobileMenu = document.getElementById("mobileMenu")
-const scrollProgress = document.getElementById("scrollProgress")
-const heroCanvas = document.getElementById("heroCanvas")
-const contactForm = document.getElementById("contactForm")
+/* DOM elements used by the navigation and scroll progress bar */
+const header = document.getElementById('siteHeader');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+const scrollProgress = document.getElementById('scrollProgress');
+const sectionLinks = [...navLinks.querySelectorAll('a')];
+const sections = sectionLinks.map(link => document.querySelector(link.hash));
+const mobileViewport = window.matchMedia('(max-width: 760px)');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-/* Track scroll position once */
-let currentScrollY;
+/* Enable JavaScript-specific styles and set content that changes over time */
+document.documentElement.classList.add('js');
+navToggle.hidden = false;
+document.getElementById('year').textContent = new Date().getFullYear();
 
-/* this creates an effect where the floating navigation only appears 
-after the user has scrolled down a bit */
-function handleFloatingNav() {
-  if (currentScrollY > 100) {
-    floatingNav.classList.add("visible");
-  } else {
-    floatingNav.classList.remove("visible");
+/* Close the mobile navigation and optionally return keyboard focus to its button */
+function closeMenu(returnFocus = false) {
+  navLinks.classList.remove('is-open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.setAttribute('aria-label', 'Open navigation');
+  if (returnFocus) navToggle.focus();
+}
+
+/* Open or close the mobile navigation when its menu button is selected */
+navToggle.addEventListener('click', () => {
+  const isOpen = navToggle.getAttribute('aria-expanded') !== 'true';
+  navLinks.classList.toggle('is-open', isOpen);
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+});
+
+/* Close the mobile navigation after the visitor selects a page link */
+sectionLinks.forEach(link => link.addEventListener('click', () => closeMenu()));
+document.querySelector('.brand').addEventListener('click', () => closeMenu());
+
+/* Allow keyboard users to close the mobile navigation with the Escape key */
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') closeMenu(true);
+});
+
+/* Close the mobile navigation after a click or focus change outside the header */
+document.addEventListener('click', event => {
+  if (!header.contains(event.target)) closeMenu();
+});
+header.addEventListener('focusout', event => {
+  if (!header.contains(event.relatedTarget)) closeMenu();
+});
+
+/* Reset the mobile menu when the page crosses the mobile breakpoint */
+mobileViewport.addEventListener('change', () => closeMenu());
+
+/* Update the progress bar, sticky header, and currently active navigation link */
+let scrollScheduled = false;
+function updateScroll() {
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
+  scrollProgress.style.transform = `scaleX(${progress})`;
+  header.classList.toggle('is-scrolled', window.scrollY > 10);
+  let activeSection = null;
+  for (const section of sections) {
+    if (section.getBoundingClientRect().top <= 150) activeSection = section.id;
+  }
+  if (progress > .995) activeSection = sections.at(-1).id;
+  for (const link of sectionLinks) {
+    if (link.hash === `#${activeSection}`) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  }
+  scrollScheduled = false;
+}
+
+/* Use one animation frame per update to keep scroll handling smooth */
+function scheduleScroll() {
+  if (!scrollScheduled) {
+    scrollScheduled = true;
+    window.requestAnimationFrame(updateScroll);
   }
 }
 
-/* creates a progress bar on the top of the page that fills as you scroll down the page */
-function handleScrollProgress() {
-  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = (currentScrollY / scrollHeight) * 100;
-  scrollProgress.style.width = scrolled + "%";
+/* Recalculate scroll-related UI when the page moves, resizes, or restores */
+window.addEventListener('scroll', scheduleScroll, { passive: true });
+window.addEventListener('resize', scheduleScroll);
+window.addEventListener('pageshow', scheduleScroll);
+new ResizeObserver(scheduleScroll).observe(document.body);
+updateScroll();
+
+/* Hero video controls and reduced-motion support */
+const video = document.getElementById('heroVideo');
+const videoToggle = document.getElementById('videoToggle');
+let motionRequested = !reducedMotion.matches;
+let videoVisible = true;
+videoToggle.hidden = false;
+
+/* Keep the video button label and icon in sync with the playback state */
+function updateVideoButton() {
+  const paused = video.paused;
+  document.getElementById('videoToggleText').textContent = paused ? 'Play motion' : 'Pause motion';
+  document.getElementById('videoToggleIcon').textContent = paused ? '▷' : 'Ⅱ';
+  videoToggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
 }
 
-/* scroll event listener */
-window.addEventListener("scroll", () => {
-  currentScrollY = window.scrollY;
-  handleFloatingNav();
-  handleScrollProgress();
+/* Play motion only when requested, visible, and allowed by the active tab */
+function syncVideo() {
+  if (motionRequested && videoVisible && !document.hidden) {
+    video.play().catch(updateVideoButton);
+  } else video.pause();
+}
+video.addEventListener('play', updateVideoButton);
+video.addEventListener('pause', updateVideoButton);
+
+/* Let the visitor manually play or pause the hero video */
+videoToggle.addEventListener('click', () => {
+  motionRequested = video.paused;
+  syncVideo();
 });
 
-/* Scroll to contact section when Contact Me button is clicked */
-document.addEventListener("DOMContentLoaded", () => {
-  const contactMeBtn = document.getElementById("contactMeBtn");
-  const contactSection = document.getElementById("contact");
-  if (contactMeBtn && contactSection) {
-    contactMeBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      contactSection.scrollIntoView({ behavior: "smooth" });
+/* Respond when the visitor changes their reduced-motion preference */
+reducedMotion.addEventListener('change', () => {
+  motionRequested = !reducedMotion.matches;
+  syncVideo();
+});
+
+/* Pause the video when the tab or video leaves view, then resume when appropriate */
+document.addEventListener('visibilitychange', syncVideo);
+new IntersectionObserver(entries => {
+  videoVisible = entries[0].isIntersecting;
+  syncVideo();
+}, { threshold: 0 }).observe(video);
+
+/* Hide the playback control if the video file cannot be loaded */
+video.addEventListener('error', () => { videoToggle.hidden = true; });
+video.querySelector('source').addEventListener('error', () => { videoToggle.hidden = true; });
+
+/* Contact form elements used for submission feedback */
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+/* Submit the contact form without leaving the page and show its current status */
+contactForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  if (submitButton.disabled) return;
+  submitButton.disabled = true;
+  contactForm.setAttribute('aria-busy', 'true');
+  formStatus.classList.remove('is-error');
+  formStatus.textContent = 'Sending your message…';
+
+  /* Send the form data to the configured Formspree endpoint */
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST', body: new FormData(contactForm), headers: { Accept: 'application/json' },
     });
+    if (!response.ok) throw new Error('Submission failed');
+    contactForm.reset();
+    formStatus.textContent = 'Thank you! Your message was sent. I’ll reply soon.';
+  } catch {
+    /* Keep the visitor's form content and offer a direct email fallback on failure */
+    formStatus.classList.add('is-error');
+    formStatus.textContent = 'Your message couldn’t be sent. Please try again, or email me at beatrizristau.dev@gmail.com.';
+  } finally {
+    /* Re-enable the form after either a successful or failed submission */
+    submitButton.disabled = false;
+    contactForm.removeAttribute('aria-busy');
   }
 });
-
-/* mobile menu toggle event listener */
-navToggle.addEventListener("click", () => {
-  mobileMenu.classList.toggle("active")
-  const icon = navToggle.querySelector("i")
-
-  if (mobileMenu.classList.contains("active")) {
-    icon.className = "fas fa-times"
-  } else {
-    icon.className = "fas fa-bars"
-  }
-})
-
-/* When user click on the button to view projects, it will scroll to the projects section */
-document.addEventListener("DOMContentLoaded", () => {
-  const viewProjectsBtn = document.getElementById("viewProjectsBtn");
-  const projectsSection = document.getElementById("projects");
-  if (viewProjectsBtn && projectsSection) {
-    /* only proceed if both elements exist */
-    viewProjectsBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      projectsSection.scrollIntoView({ behavior: "smooth" });
-    });
-  }
-});
-
-/* Close mobile menu when clicking on nav links */
-document.querySelectorAll(".mobile-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("active")
-    navToggle.querySelector("i").className = "fas fa-bars"
-  })
-})
-
-/* Close mobile menu when clicking outside of the menu options */
-mobileMenu.addEventListener("click", (e) => {
-  if (e.target === mobileMenu) {
-    mobileMenu.classList.remove("active")
-    navToggle.querySelector("i").className = "fas fa-bars"
-  }
-})
-
-/* Smooth scrolling for navigation links */
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault()
-    const target = document.querySelector(this.getAttribute("href"))
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      })
-    }
-  })
-})
-
-/* Hero Canvas Animation */
-function initHeroCanvas() {
-  const canvas = heroCanvas
-  const ctx = canvas.getContext("2d")
-
-  // Set canvas size
-  function resizeCanvas() {
-    const rect = canvas.getBoundingClientRect()
-    canvas.width = rect.width * window.devicePixelRatio
-    canvas.height = rect.height * window.devicePixelRatio
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio)
-  }
-
-  resizeCanvas()
-  window.addEventListener("resize", resizeCanvas)
-
-  // Particles
-  const particles = []
-  const particleCount = 50
-
-  class Particle {
-    constructor() {
-      this.x = (Math.random() * canvas.width) / window.devicePixelRatio
-      this.y = (Math.random() * canvas.height) / window.devicePixelRatio
-      this.size = Math.random() * 3 + 1
-      this.speedX = Math.random() * 2 - 1
-      this.speedY = Math.random() * 2 - 1
-      this.hue = Math.random() * 60 + 270 // Purple to pink range
-    }
-
-    update() {
-      this.x += this.speedX
-      this.y += this.speedY
-
-      if (this.x > canvas.width / window.devicePixelRatio || this.x < 0) {
-        this.speedX = -this.speedX
-      }
-
-      if (this.y > canvas.height / window.devicePixelRatio || this.y < 0) {
-        this.speedY = -this.speedY
-      }
-    }
-
-    draw() {
-      ctx.fillStyle = `hsl(${this.hue}, 70%, 60%)`
-      ctx.beginPath()
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-      ctx.fill()
-    }
-  }
-
-  // Initialize particles
-  for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle())
-  }
-
-  // Animation loop
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-    // Draw connections
-    ctx.strokeStyle = "rgba(139, 92, 246, 0.1)"
-    ctx.lineWidth = 1
-
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x
-        const dy = particles[i].y - particles[j].y
-        const distance = Math.sqrt(dx * dx + dy * dy)
-
-        if (distance < 100) {
-          ctx.beginPath()
-          ctx.moveTo(particles[i].x, particles[i].y)
-          ctx.lineTo(particles[j].x, particles[j].y)
-          ctx.stroke()
-        }
-      }
-    }
-
-    // Update and draw particles
-    particles.forEach((particle) => {
-      particle.update()
-      particle.draw()
-    })
-
-    requestAnimationFrame(animate)
-  }
-
-  animate()
-}
-
-/* Initialize hero canvas when page loads */
-window.addEventListener("load", initHeroCanvas)
-
-/* Intersection Observer for animations */
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
-}
-
-/* skills section animation on load */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, observerOptions);
-
-/* Observe elements for animation */
-document.addEventListener("DOMContentLoaded", () => {
-  // Add fade-in class to elements
-  const animatedElements = document.querySelectorAll(".glass-card, .project-card, .section-header");
-  animatedElements.forEach((el) => {
-    el.classList.add("fade-in")
-    observer.observe(el)
-  })
-})
-
-/* Staggered reveal for skill cards when the skills section enters view */
-const skillsSection = document.getElementById("skills");
-if (skillsSection) {
-  const skillsObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const cards = skillsSection.querySelectorAll(".skill-card");
-        cards.forEach((card, idx) => {
-          setTimeout(() => {
-            card.classList.add("visible");
-          }, idx * 120); // small stagger between cards
-        });
-        obs.unobserve(skillsSection); // run once
-      }
-    });
-  }, { threshold: 0.2 });
-  skillsObserver.observe(skillsSection);
-}
-
-/* allows users to close the mobile menu by pressing the escape key */
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
-    mobileMenu.classList.remove("active")
-    navToggle.querySelector("i").className = "fas fa-bars"
-  }
-})
-
-/* If user clicks on the brand, it redirects user to the top of the page again and closes mobile menu if open */
-document.querySelector('.nav-brand-link').addEventListener('click', function(e) {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  // Close mobile menu if open
-  if (mobileMenu.classList.contains('active')) {
-    mobileMenu.classList.remove('active');
-    navToggle.querySelector('i').className = 'fas fa-bars';
-  }
-});
-
-/* Custom Formspree AJAX submit for contact form */
-document.addEventListener("DOMContentLoaded", () => {
-    if (contactForm) {
-        contactForm.addEventListener("submit", async function (e) {
-            e.preventDefault();
-
-            const formData = new FormData(contactForm);
-            try {
-                const response = await fetch(contactForm.action, {
-                    method: "POST",
-                    body: formData,
-                    headers: {
-                    Accept: "application/json",
-                    },
-                });
-
-                if (response.ok) {
-                    alert("Thank you! Your message was sent. I'll reply soon.");
-                    contactForm.reset();
-                } else {
-                    alert("Oops! There was a problem submitting your form. Please try again later.");
-                }
-            } catch (error) {
-                alert("Network error. Please try again later.");
-            }
-        });
-    }
-})

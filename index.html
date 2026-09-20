@@ -1,388 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatriz Ristau</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Beatriz Ristau">
+  <meta name="theme-color" content="#f5f4f0">
+  <title>Beatriz Ristau</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700;750;760&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
-<body>
-
-    <!-- Floating Navigation -->
-    <nav class="floating-nav" id="floatingNav">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <a href="#" class="nav-brand-link">
-                    <span class="brand-gradient">Beatriz</span><span class="brand-white">Ristau</span>
-                </a>
-            </div>
-            <div class="nav-links" id="navLinks">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-            <!-- Toggle only for Mobile layout -->
-            <button class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-content">
-            <a href="#about" class="mobile-link">About</a>
-            <a href="#skills" class="mobile-link">Skills</a>
-            <a href="#projects" class="mobile-link">Projects</a>
-            <a href="#experience" class="mobile-link">Experience</a>
-            <a href="#contact" class="mobile-link">Contact</a>
-        </div>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="siteHeader">
+    <div class="page-shell header-inner">
+      <a class="brand" href="#top" aria-label="Beatriz Ristau, home">Beatriz Ristau<span class="brand-dot">.</span></a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation" hidden><span></span><span></span></button>
+      <nav class="nav-links" id="navLinks" aria-label="Portfolio sections">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact <span aria-hidden="true">↗</span></a>
+      </nav>
     </div>
+    <div class="progress-track" aria-hidden="true"><div class="scroll-progress" id="scrollProgress"></div></div>
+  </header>
 
-    <!-- Scroll Bar Progress -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Intro Section -->
-    <section class="hero">
-        <div class="hero-bg">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
+  <!-- HERO -->
+  <main class="page-shell" id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Software Engineer</div>
+        <h1 id="hero-title"><span>Hi, I’m</span> Beatriz Ristau</h1>
+        <p class="hero-description">I build robust backend systems with Java &amp; Spring Boot, crafting scalable digital experiences through clean code and innovative solutions.</p>
+        <div class="hero-socials" aria-label="Social links">
+          <a href="https://github.com/beatrizristau" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0 1 12 6.82c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/beatriz-ristau" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 7.8A1.8 1.8 0 1 0 5.2 4a1.8 1.8 0 0 0 0 3.8ZM3.6 20h3.2V9.3H3.6V20Zm5.2 0H12v-5.3c0-1.4.27-2.75 2-2.75 1.7 0 1.72 1.59 1.72 2.84V20H19v-5.87c0-2.88-.62-5.1-4-5.1-1.62 0-2.7.89-3.14 1.73h-.04V9.3H8.8V20Z"/></svg>
+          </a>
+          <a href="mailto:beatrizristau.dev@gmail.com" aria-label="Email Beatriz">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm9 7.2L20.2 7H3.8l8.2 5.2Zm0 2.3L3 8.8V17h18V8.8l-9 5.7Z"/></svg>
+          </a>
         </div>
-        
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="section-badge">
-                        <span>Software Engineer</span>
-                    </div>
-                    <h1 class="hero-title">
-                        <span class="title-line">Hi, I'm</span>
-                        <span class="title-gradient">Beatriz Ristau</span>
-                    </h1>
-                    <p class="hero-description">
-                        I build robust backend systems with Java & Spring Boot, crafting scalable digital experiences through clean code and innovative solutions.
-                    </p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary" id="viewProjectsBtn">
-                            View Projects <i class="fas fa-arrow-right"></i>
-                        </button>
-                        <button class="btn btn-outline" id="contactMeBtn">Contact Me</button>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://github.com/beatrizristau" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/beatriz-ristau" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="mailto:beatrizristau.dev@gmail.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <canvas id="heroCanvas"></canvas>
-                </div>
-            </div>
+      </div>
+      <figure class="media-card">
+        <div class="video-frame">
+          <video id="heroVideo" muted loop playsinline preload="metadata" poster="assets/working-rhythm-poster.jpg" aria-label="A woman working at a laptop in a light, minimal workspace">
+            <source src="assets/working-rhythm.mp4" type="video/mp4">
+          </video>
+          <button class="video-toggle" id="videoToggle" aria-controls="heroVideo" aria-label="Play background video" hidden><span id="videoToggleText">Play motion</span><span aria-hidden="true" id="videoToggleIcon">▷</span></button>
         </div>
+      </figure>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">My background and journey</div>
-                <h2 class="section-title">About Me</h2>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="imgs/beatriz_ristau_pic.jpg" alt="Beatriz Ristau">
-                </div>
-                <div class="about-text">
-                    <div class="glass-card">
-                        <p>I am a passionate Software Engineer with a solid foundation in designing, developing, and
-deploying robust backend applications. I specialize in Java, Spring Boot, and object-oriented design, with hands-on experience building scalable backend services and developing RESTful APIs.</p>
-                        
-                        <p>My background also includes working with relational databases like PostgreSQL and Spanner DB, and deploying solutions in cloud environments such as Google Cloud Platform (GCP). I’m driven by clean code, automation, and performance.</p>
-                        
-                        <p>I am eager to contribute to innovative projects and am continuously looking to learn new technologies and concepts to improve as a developer - currently learning React to expand my full-stack capabilities, and exploring AI agents to deepen my understanding of intelligent, autonomous systems.</p>
-                        
-                        <div class="info-grid">
-                            <div class="info-item">
-                                <span class="info-label">Availability</span>
-                                <span class="info-value status-available">Open to new opportunities</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- ABOUT ME -->
+    <section id="about" class="content-section" aria-labelledby="about-title">
+      <p class="section-kicker"><span>01 / About me</span><span>A little background</span></p>
+      <div class="about-grid">
+        <div class="about-intro">
+          <h2 id="about-title">Thoughtful code.<br>Solid foundations.</h2>
         </div>
+        <div class="about-copy prose">
+          <p>I am a passionate Software Engineer with a solid foundation in designing, developing, and deploying robust backend applications. I specialize in Java, Spring Boot, and object-oriented design, with hands-on experience building scalable backend services and developing RESTful APIs.</p>
+          <p>My background also includes working with relational databases like PostgreSQL and Spanner DB, and deploying solutions in cloud environments such as Google Cloud Platform (GCP). I’m driven by clean code, automation, and performance.</p>
+          <p>I am eager to contribute to innovative projects and am continuously looking to learn new technologies and concepts to improve as a developer. I am currently pursuing a master’s degree in computer science with a concentration in Artificial Intelligence.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Technologies I work with</div>
-                <h2 class="section-title">My Skills</h2>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="card-title">
-                        <span class="icon-badge"><i class="fa-solid fa-code fa-lg"></i></span>
-                        <h3>Programming Languages</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li>Java</li>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                        <li>C</li>
-                        <li>OOP (Object Oriented Programming)</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <div class="card-title">
-                        <span class="icon-badge"><i class="fa-solid fa-layer-group fa-xl"></i></span>
-                        <h3>Frameworks & Libraries</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li>Spring (Boot, Web, Data JPA, Security, Cloud, Netflix, AOP)</li>
-                        <li>Hibernate</li>
-                        <li>React.js</li>
-                        <li>Node.js</li>
-                        <li>Bootstrap</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <div class="card-title">
-                        <span class="icon-badge"><i class="fa-solid fa-database fa-xl"></i></span>
-                        <h3>Databases</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li>MySQL</li>
-                        <li>PostgreSQL</li>
-                        <li>Spanner DB</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <div class="card-title">
-                        <span class="icon-badge"><i class="fa-solid fa-cloud fa-lg"></i></span>
-                        <h3>DevOps & Cloud</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li>Docker</li>
-                        <li>Google Cloud Platform (GCP)</li>
-                        <li>AWS (EC2, S3)</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <div class="card-title">
-                        <span class="icon-badge"><i class="fa-solid fa-message fa-lg"></i></span>
-                        <h3>Messaging Systems</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li>Apache Kafka</li>
-                        <li>Google Pub/Sub</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <div class="card-title">
-                        <span class="icon-badge"><i class="fa-brands fa-git fa-xl"></i></span>
-                        <h3>Tools & Versioning</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li>Git</li>
-                        <li>GitHub</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <div class="card-title">
-                        <span class="icon-badge"><i class="fa-solid fa-screwdriver-wrench fa-xl"></i></span>
-                        <h3>Agile Methodologies</h3>
-                    </div>
-                    <ul class="skill-list">
-                        <li>Scrum</li>
-                        <li>JIRA</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
+    <!-- SKILLS  -->
+    <section id="skills" class="content-section" aria-labelledby="skills-title">
+      <p class="section-kicker"><span>02 / Skills</span><span>The tools behind the work</span></p>
+      <div class="section-heading"><h2 id="skills-title">A practical toolkit.</h2></div>
+      <div class="skills-grid">
+        <article class="skill-card"><h3>Languages</h3><ul class="skill-list"><li>Java</li><li>JavaScript</li><li>Python</li><li>C</li><li>Object-oriented programming</li></ul></article>
+        <article class="skill-card skill-card-wide"><h3>Frameworks & libraries</h3><ul class="skill-list"><li>Spring Boot</li><li>Spring Web</li><li>Spring Data JPA</li><li>Spring Security</li><li>Spring Cloud</li><li>Spring Cloud Netflix</li><li>Spring AOP</li><li>Hibernate</li><li>React.js</li><li>Node.js</li><li>Bootstrap</li></ul></article>
+        <article class="skill-card"><h3>Databases</h3><ul class="skill-list"><li>MySQL</li><li>PostgreSQL</li><li>Spanner DB</li></ul></article>
+        <article class="skill-card"><h3>Cloud & DevOps</h3><ul class="skill-list"><li>Docker</li><li>Google Cloud Platform</li><li>AWS EC2</li><li>AWS S3</li></ul></article>
+        <article class="skill-card"><h3>Messaging</h3><ul class="skill-list"><li>Apache Kafka</li><li>Google Pub/Sub</li></ul></article>
+        <article class="skill-card"><h3>Tools & versioning</h3><ul class="skill-list"><li>Git</li><li>GitHub</li></ul></article>
+        <article class="skill-card"><h3>Ways of working</h3><ul class="skill-list"><li>Scrum</li><li>JIRA</li></ul></article>
+      </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Some of my recent work</div>
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="imgs/tech_os.png" alt="E-commerce Platform">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/beatrizristau/TechOS" target="_blank" class="project-link">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>TechOS</h3>
-                        <p>A lightweight Operating System written in C. </p>
-                        <div class="project-tags">
-                            <span class="tag">C</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Task Management App">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/beatrizristau/employee-management" target="_blank" class="project-link">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Employee Management App</h3>
-                        <p>A Simple full stack Employee Management Web Application to learn React.</p>
-                        <div class="project-tags">
-                            <span class="tag">React JS</span>
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">Bootstrap</span>
-                            <span class="tag">Vite JS</span>
-                            <span class="tag">Axios</span>
-                            <span class="tag">Java</span>
-                            <span class="tag">Spring Boot</span>
-                            <span class="tag">JWT</span>
-                            <span class="tag">PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- PROJECTS -->
+    <section id="projects" class="content-section" aria-labelledby="projects-title">
+      <p class="section-kicker"><span>03 / Projects</span><span>Selected work</span></p>
+      <div class="section-heading"><h2 id="projects-title">Useful software,<br>carefully built.</h2><p>Exploring how things work.<br>Building something along the way.</p></div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <a class="project-visual terminal-visual" href="https://github.com/beatrizristau/TechOS" target="_blank" rel="noopener noreferrer" aria-label="View TechOS on GitHub"><img src="imgs/tech_os.png" alt="TechOS operating system running in a terminal" loading="lazy" width="600" height="400"><span class="project-visual-label">Systems / C</span></a>
+          <div class="project-content"><div class="project-heading"><h3><a href="https://github.com/beatrizristau/TechOS" target="_blank" rel="noopener noreferrer">TechOS</a></h3><span class="project-number">01</span></div><p>A lightweight operating system written in C. An exploration of what happens beneath the applications we use every day.</p><ul class="project-tags" aria-label="TechOS technologies"><li>C</li></ul><a class="project-link" href="https://github.com/beatrizristau/TechOS" target="_blank" rel="noopener noreferrer">View repository <span aria-hidden="true">↗</span></a></div>
+        </article>
+        <article class="project-card">
+          <a class="project-visual employee-visual" href="https://github.com/beatrizristau/employee-management" target="_blank" rel="noopener noreferrer" aria-label="View Employee Management App on GitHub">
+            <div class="app-illustration" aria-hidden="true"><div class="app-topline"><span class="app-mark">e.</span><span>Workspace</span><span class="app-avatar">BR</span></div><div class="app-heading"><span>People</span><span class="mock-button">+ Add employee</span></div><div class="app-table-heading"><span>Team member</span><span>Status</span></div><div class="app-row"><span class="mock-avatar">A</span><span class="mock-lines"></span><span class="mock-status">Active</span></div><div class="app-row"><span class="mock-avatar">J</span><span class="mock-lines"></span><span class="mock-status">Active</span></div><div class="app-row"><span class="mock-avatar">M</span><span class="mock-lines"></span><span class="mock-status">Active</span></div></div>
+            <span class="project-visual-label">Full stack / Interface illustration</span>
+          </a>
+          <div class="project-content"><div class="project-heading"><h3><a href="https://github.com/beatrizristau/employee-management" target="_blank" rel="noopener noreferrer">Employee Management</a></h3><span class="project-number">02</span></div><p>A full-stack employee management web application, built to learn React and connect a responsive interface to a Java backend.</p><ul class="project-tags" aria-label="Employee Management technologies"><li>React</li><li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>JWT</li><li>HTML</li><li>CSS</li><li>Bootstrap</li><li>Vite</li><li>Axios</li></ul><a class="project-link" href="https://github.com/beatrizristau/employee-management" target="_blank" rel="noopener noreferrer">View repository <span aria-hidden="true">↗</span></a></div>
+        </article>
+      </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">My professional journey</div>
-                <h2 class="section-title">Work Experience</h2>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="timeline">    
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="glass-card">
-                            <h3>Software Engineer II</h3>
-                            <div class="timeline-meta">
-                                American Express | April 2023 - Present
-                            </div>
-                            <p>Developed and maintained Amex Big Data Platform infrastructure, orchestrating GCP Airflow DAGs, executing Dataflow jobs, and using Pub/Sub for event-driven, scalable BigQuery data pipelines.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-marker"></div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="glass-card">
-                            <h3>Java Developer Trainee</h3>
-                            <div class="timeline-meta">
-                                Apolis | July 2022 - March 2023
-                            </div>
-                            <p>Completed intensive Java training, translating requirements into development plans.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-marker"></div>
-                </div>
-            </div>
-        </div>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="content-section" aria-labelledby="experience-title">
+      <p class="section-kicker"><span>04 / Experience</span><span>My professional journey</span></p>
+      <div class="experience-grid"><h2 id="experience-title">Built on<br>experience.</h2><div class="experience-list">
+        <article class="experience-item"><div class="experience-date"><span class="status-dot" aria-hidden="true"></span>April 2023 — Present</div><h3>Software Engineer II</h3><p class="company">American Express</p><p>Developed and maintained Amex Big Data Platform infrastructure, orchestrating GCP Airflow DAGs, executing Dataflow jobs, and using Pub/Sub for event-driven, scalable BigQuery data pipelines.</p><ul class="project-tags" aria-label="Technologies used at American Express"><li>GCP</li><li>Airflow</li><li>Dataflow</li><li>Pub/Sub</li><li>BigQuery</li></ul></article>
+        <article class="experience-item"><div class="experience-date"><span class="timeline-dot" aria-hidden="true"></span>July 2022 — March 2023</div><h3>Java Developer Trainee</h3><p class="company">Apolis</p><p>Completed intensive Java training, translating requirements into development plans.</p><ul class="project-tags" aria-label="Technologies used at Apolis"><li>Java</li><li>Spring Boot</li></ul></article>
+      </div></div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Let's work together</div>
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-form-container">
-                    <div class="glass-card">
-                        <h3 class="contact-h3">Send Me a Message</h3>
-                        <form 
-                            class="contact-form" 
-                            id="contactForm"
-                            action="https://formspree.io/f/mqabwjgv"
-                            method="POST"
-                        >
-                            <input type="text" name="name" placeholder="Your Name" required>
-                            <input type="email" name="email" placeholder="Your Email" required>
-                            <input type="text" name="subject" placeholder="Subject" required>
-                            <textarea placeholder="Your Message" name="message" rows="5" required></textarea>
-
-                            <button type="submit" class="btn btn-primary">
-                                Send Message <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <!-- CONTACT  -->
+    <section id="contact" class="content-section contact-section" aria-labelledby="contact-title">
+      <p class="section-kicker"><span>05 / Contact</span><span>Let’s work together</span></p>
+      <div class="contact-grid"><div class="contact-copy"><h2 id="contact-title">Let’s build<br>something useful.</h2><p>Have a project in mind, an opportunity to share,<br class="desktop-break"> or just want to say hello? I’d love to hear from you.</p>
+        <div class="hero-socials contact-socials" aria-label="Contact links">
+          <a href="https://github.com/beatrizristau" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0 1 12 6.82c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          </a>
+          <a href="mailto:beatrizristau.dev@gmail.com" aria-label="Email Beatriz">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm9 7.2L20.2 7H3.8l8.2 5.2Zm0 2.3L3 8.8V17h18V8.8l-9 5.7Z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/beatriz-ristau" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 7.8A1.8 1.8 0 1 0 5.2 4a1.8 1.8 0 0 0 0 3.8ZM3.6 20h3.2V9.3H3.6V20Zm5.2 0H12v-5.3c0-1.4.27-2.75 2-2.75 1.7 0 1.72 1.59 1.72 2.84V20H19v-5.87c0-2.88-.62-5.1-4-5.1-1.62 0-2.7.89-3.14 1.73h-.04V9.3H8.8V20Z"/></svg>
+          </a>
         </div>
+      </div>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqabwjgv" method="POST">
+          <div class="form-row"><div class="form-field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="John Doe" required></div><div class="form-field"><label for="email">Email address</label><input id="email" type="email" name="email" autocomplete="email" placeholder="johndoe@example.com" required></div></div>
+          <div class="form-field"><label for="subject">Subject</label><input id="subject" name="subject" placeholder="What do you have in mind?" required></div>
+          <div class="form-field"><label for="message">Your message</label><textarea id="message" name="message" rows="4" placeholder="Tell me a little about it…" required></textarea></div>
+          <button class="button button-primary" type="submit">Send message <span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="brand-gradient">Beatriz</span><span class="brand-white">Ristau</span>
-                    <p>&copy; 2025 Beatriz Ristau. All rights reserved.</p>
-                </div>
-                <div class="footer-social">
-                    <a href="https://github.com/beatrizristau" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/beatriz-ristau" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="mailto:beatrizristau.dev@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <script src="script.js"></script>
+  <!-- FOOTER -->
+  <footer class="site-footer page-shell"><span>© <span id="year">2026</span> Beatriz Ristau. All rights reserved.</span><span class="footer-note">Thoughtfully built. Always evolving.</span><a href="#top">Back to top ↑</a></footer>
 </body>
 </html>
