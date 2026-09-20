@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="91069953-6ec5-476b-9c92-f199a0934239" name="Changes" comment="[feat] redesigned portfolio website" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;beatrizristau&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/beatrizristau/portfolio-website.git&quot;,
+    &quot;accountId&quot;: &quot;f3a2934a-c20d-4d3e-9f04-d9b3e1cdc658&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0224055507541292" />
+      <entry key="MS500" value="1.474609958838959" />
+      <entry key="S2" value="2.3935402550914135" />
+      <entry key="S5" value="4.015248706866473" />
+      <entry key="S10" value="5.635618337045384" />
+      <entry key="S30" value="7.956833496101481" />
+      <entry key="S60" value="9.86429422495906" />
+      <entry key="M2" value="11.996310028274033" />
+      <entry key="M5" value="15.290935579420493" />
+      <entry key="M10" value="20.186652395052946" />
+      <entry key="M15" value="23.820937640543427" />
+      <entry key="M30" value="29.616696562487938" />
+      <entry key="H1" value="33.739170237869246" />
+      <entry key="H2" value="36.208567432276936" />
+      <entry key="H4" value="37.5614150350185" />
+      <entry key="D1" value="38.75404589123115" />
+      <entry key="W1" value="38.964708931578315" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9944478172027602" />
+      <entry key="MS500" value="1.4664440759728101" />
+      <entry key="S2" value="2.3898900509905534" />
+      <entry key="S5" value="4.012319745398791" />
+      <entry key="S10" value="5.633335990201625" />
+      <entry key="S30" value="7.954461905300562" />
+      <entry key="S60" value="9.860951730765908" />
+      <entry key="M2" value="11.993156001410458" />
+      <entry key="M5" value="15.288987265762728" />
+      <entry key="M10" value="20.185440585557956" />
+      <entry key="M15" value="23.820041760301294" />
+      <entry key="M30" value="29.61618645634561" />
+      <entry key="H1" value="33.7388945753642" />
+      <entry key="H2" value="36.208423610658336" />
+      <entry key="H4" value="37.56134150572728" />
+      <entry key="D1" value="38.75403340044968" />
+      <entry key="W1" value="38.964707141252845" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3JZgQ8GKajR3Z8Ne9l5CLrb1zIQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;new-design&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bbomanso/github/portfolio-website&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.10968.77" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="91069953-6ec5-476b-9c92-f199a0934239" name="Changes" comment="" />
+      <created>1764352864046</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764352864046</updated>
+      <workItem from="1789873987450" duration="4254000" />
+      <workItem from="1789886624233" duration="974000" />
+    </task>
+    <task id="LOCAL-00001" summary="[feat] redesigned portfolio website">
+      <option name="closed" value="true" />
+      <created>1789887177672</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1789887177672</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[feat] redesigned portfolio website" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feat] redesigned portfolio website" />
+  </component>
+</project>

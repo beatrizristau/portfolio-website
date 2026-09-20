@@ -2,7 +2,7 @@
 
 This is my personal portfolio website. I’m a software engineer specialized in backend development with Java and Spring Boot. Here, I showcase my skills, highlight my projects and experience, and provide a contact form so you can reach out for collaboration and/or job opportunities.
 
-![Screenshot 2026-09-19 at 11.48.48 PM.png](../../Downloads/Screenshot%202026-09-19%20at%2011.48.48%E2%80%AFPM.png)
+![hero_screenshot.png](assets/hero_screenshot.png)
 
 ## Local preview
 
