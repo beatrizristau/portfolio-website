@@ -1,48 +1,44 @@
-# Beatriz Ristau's Coding Portifolio
+# Beatriz Ristau’s Portfolio
 
-![Screenshot 2025-06-28 at 4 37 35 PM](https://github.com/user-attachments/assets/dbf73f94-8875-40ca-b32d-25fc46b57c3c)
+This is my personal portfolio website. I’m a software engineer specialized in backend development with Java and Spring Boot. Here, I showcase my skills, highlight my projects and experience, and provide a contact form so you can reach out for collaboration and/or job opportunities.
 
-## Introduction
-This is my personal portfolio website. I’m a software engineer specializing in backend development with Java and Spring Boot. Here, I showcase my skills, highlight my projects and experience, and provide a contact form so you can reach out for collaboration and/or job opportunities.
+![hero_screenshot.png](assets/hero_screenshot.png)
+
+## Local preview
+
+No build step or package installation is required. Open `index.html` directly, or start a local server:
+
+```sh
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+Then visit http://127.0.0.1:8000.
 
 ## Features
-- Responsive design for desktop and mobile
-- Animated hero section with canvas particles (hidden on mobile)
-- Floating navigation bar and mobile menu
-- Skills section with categorized cards
-- Projects showcase with overlays and external links
-- Timeline-style experience section
-- AJAX-powered contact form (Formspree) with alert feedback
-- Smooth scrolling and subtle UI animations
 
-## Installation
+- Responsive layouts and accessible mobile navigation
+- Sticky navigation with a terracotta scroll progress bar and active section links
+- Muted video loop with pause/play, reduced-motion support, and a poster fallback
+- Categorized skills, project repository links, and work experience
+- Existing Formspree contact integration with inline status and error feedback
+- Labeled form fields, keyboard focus indicators, and a skip link
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/beatrizristau/portfolio-website.git
-   cd portfolio-website
-   ```
+## Design
 
-2. **Open `index.html` in your browser**  
-No build step is required. All assets are static.
+The palette uses warm off-white (`#F5F4F0`), soft black (`#171715`), and restrained terracotta accents (`#A16F4C`). Inter loads through Google Fonts with a system sans-serif fallback; metadata uses system monospace fonts. Shared design tokens live at the top of `styles.css`.
 
-## Technologies Used
-- **HTML5**
-- **CSS3** (Flexbox, Grid, custom properties, media queries)
-- **JavaScript (ES6+)**
-- [Font Awesome](https://fontawesome.com/) for icons
-- [Formspree](https://formspree.io/) for contact form handling
+## Files
 
-## Project Structure
-```
-portfolio-website/
-├── imgs/                    # Images used in the site (e.g., profile picture)
-├── index.html               # Main HTML file
-├── styles.css               # Main stylesheet
-├── script.js                # Main JavaScript file
-├── LICENSE                  # Project license (MIT)
-└── README.md                # Project documentation
-```
+- `index.html` — page content and semantic structure
+- `styles.css` — design tokens and responsive styling
+- `script.js` — navigation, scroll progress, video, and contact behavior
+- `assets/` — hero video, poster, and favicon
+- `imgs/` — existing portrait and TechOS screenshot
+
+## Contact
+
+The form posts to the existing Formspree endpoint. Local layout checks do not require sending a real message. The email, GitHub, and LinkedIn links are also available directly on the page.
 
 ## License
-This project is licensed under the [MIT License](LICENSE).
+
+[MIT](LICENSE)
