@@ -143,7 +143,10 @@ h2 em { color: var(--accent); font: 600 1.12em/1 var(--script); letter-spacing: 
 .experience-badge { padding: 5px 11px; border-radius: 999px; background: rgb(255 255 255 / 9%); color: rgb(255 255 255 / 90%); font: 500 11px/1.5 var(--mono); }
 .experience-date { display: flex; align-items: center; gap: 10px; padding-top: 5px; color: var(--accent); font: 700 12px/1.6 var(--mono); }
 .experience-date svg { flex: 0 0 18px; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.experience-item .company { margin: 12px 0 25px; color: white; font: 500 16px/1.6 var(--mono); }
+.experience-item .company { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 12px 0 25px; color: white; font: 500 16px/1.6 var(--mono); }
+.experience-location { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 13px; font-weight: 400; }
+.experience-location-separator { display: inline-block; align-self: center; width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+.experience-location svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .experience-summary, .experience-highlights { color: var(--muted); font-size: 15px; font-weight: 500; line-height: 1.85; }
 .experience-highlights { display: grid; gap: 8px; padding: 0; margin: 20px 0 26px; list-style: none; }
 .experience-highlights li { position: relative; padding-left: 25px; }
