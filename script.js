@@ -122,6 +122,44 @@ skillPanel.tabIndex = 0;
 selectSkillTab(skillButtons[0]);
 skillTabs.hidden = false;
 
+/* Sort the actual card elements so visual and reading order stay aligned. */
+const projectGrid = document.getElementById('projects-grid');
+const projectSort = document.getElementById('projectSort');
+const projectSortStatus = document.getElementById('projectSortStatus');
+let sortAscending = false;
+const projectCards = [...projectGrid.querySelectorAll('.project-card')].map((card, index) => ({
+  card,
+  index,
+  year: Number(card.querySelector('time')?.dateTime),
+}));
+
+function sortProjects(announce = false) {
+  const direction = sortAscending ? 1 : -1;
+  const sorted = [...projectCards].sort((a, b) => {
+    // Undated projects stay at the end; equal years retain their original order.
+    if (!Number.isFinite(a.year)) return Number.isFinite(b.year) ? 1 : a.index - b.index;
+    if (!Number.isFinite(b.year)) return -1;
+    return direction * (a.year - b.year) || a.index - b.index;
+  });
+  sorted.forEach(({ card }, index) => {
+    card.querySelector('.project-index').textContent = String(index + 1).padStart(2, '0');
+    projectGrid.append(card);
+  });
+  if (announce) {
+    projectSortStatus.textContent = `Projects sorted by year, ${direction === 1 ? 'oldest' : 'newest'} first.`;
+  }
+  projectSort.textContent = `Sort by year: ${direction === 1 ? 'oldest' : 'newest'} first`;
+  projectSort.setAttribute('aria-pressed', String(sortAscending));
+  scheduleScroll();
+}
+
+projectSort.addEventListener('click', () => {
+  sortAscending = !sortAscending;
+  sortProjects(true);
+});
+sortProjects();
+document.getElementById('projectSortControl').hidden = false;
+
 /* Contact form elements used for submission feedback */
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');

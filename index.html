@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=project-cards-11">
-  <script src="script.js?v=skill-tabs-7" defer></script>
+  <link rel="stylesheet" href="styles.css?v=project-sort-style-13">
+  <script src="script.js?v=project-sort-12" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -108,10 +108,19 @@
     <!-- PROJECTS -->
     <section id="projects" class="content-section page-shell" aria-labelledby="projects-title">
       <p class="section-kicker"><span>[ 03 // Selected projects ]</span><span>Selected work</span></p>
-      <div class="section-heading projects-heading"><h2 id="projects-title">Featured <em>projects.</em></h2></div>
-      <div class="projects-grid">
+      <div class="section-heading projects-heading">
+        <h2 id="projects-title">Featured <em>projects.</em></h2>
+        <div class="project-sort" id="projectSortControl" hidden>
+          <div class="project-sort-field">
+            <svg class="project-sort-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h11M4 18h6"/></svg>
+            <button id="projectSort" type="button" aria-controls="projects-grid" aria-pressed="false">Sort by year: newest first</button>
+          </div>
+        </div>
+      </div>
+      <p class="sr-only" id="projectSortStatus" role="status" aria-live="polite"></p>
+      <div class="projects-grid" id="projects-grid">
         <article class="project-card" aria-labelledby="project-01-title">
-          <div class="project-meta"><span class="project-number">01 // 2021</span><span class="project-category">Systems programming</span></div>
+          <div class="project-meta"><span class="project-number"><span class="project-index">01</span> // <time datetime="2021">2021</time></span><span class="project-category">Systems programming</span></div>
           <h3 id="project-01-title">TechOS</h3>
           <p class="project-subtitle">A lightweight operating system</p>
           <p class="project-description">A lightweight operating system written in C. An exploration of what happens beneath the applications we use every day.</p>
@@ -119,7 +128,7 @@
           <a class="project-link" href="https://github.com/beatrizristau/TechOS" target="_blank" rel="noopener noreferrer" aria-label="View TechOS repository on GitHub"><span class="project-link-label">View repository</span><span class="project-link-icons" aria-hidden="true"><span class="project-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0 1 12 6.82c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></span><span class="project-icon project-arrow">↗</span></span></a>
         </article>
         <article class="project-card" aria-labelledby="project-02-title">
-          <div class="project-meta"><span class="project-number">02 // 2025</span><span class="project-category">Full-stack development</span></div>
+          <div class="project-meta"><span class="project-number"><span class="project-index">02</span> // <time datetime="2025">2025</time></span><span class="project-category">Full-stack development</span></div>
           <h3 id="project-02-title">Employee Management</h3>
           <p class="project-subtitle">A connected frontend and backend</p>
           <p class="project-description">A full-stack employee management web application, built to learn React and connect a responsive interface to a Java backend.</p>
