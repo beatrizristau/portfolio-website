@@ -160,6 +160,60 @@ projectSort.addEventListener('click', () => {
 sortProjects();
 document.getElementById('projectSortControl').hidden = false;
 
+/* Direct contact modal, with the contact section as a no-JavaScript fallback. */
+const talkTrigger = document.getElementById('talkTrigger');
+const contactDialog = document.getElementById('contactDialog');
+const copyContactEmail = document.getElementById('copyContactEmail');
+const emailCopyStatus = document.getElementById('emailCopyStatus');
+
+if (typeof contactDialog.showModal === 'function') {
+  talkTrigger.setAttribute('aria-haspopup', 'dialog');
+  talkTrigger.setAttribute('aria-controls', contactDialog.id);
+  talkTrigger.addEventListener('click', event => {
+    event.preventDefault();
+    emailCopyStatus.textContent = '';
+    copyContactEmail.textContent = 'Copy';
+    contactDialog.showModal();
+    document.documentElement.classList.add('contact-dialog-open');
+  });
+}
+
+document.getElementById('closeContactDialog').addEventListener('click', () => contactDialog.close());
+contactDialog.addEventListener('close', () => {
+  document.documentElement.classList.remove('contact-dialog-open');
+  talkTrigger.focus({ preventScroll: true });
+});
+
+// Close only when both ends of a pointer click are outside the card.
+function outsideContactCard(event) {
+  const bounds = contactDialog.getBoundingClientRect();
+  return event.clientX < bounds.left || event.clientX > bounds.right ||
+    event.clientY < bounds.top || event.clientY > bounds.bottom;
+}
+let contactBackdropPressed = false;
+contactDialog.addEventListener('pointerdown', event => {
+  contactBackdropPressed = event.target === contactDialog && outsideContactCard(event);
+});
+contactDialog.addEventListener('click', event => {
+  if (contactBackdropPressed && event.target === contactDialog && outsideContactCard(event)) contactDialog.close();
+  contactBackdropPressed = false;
+});
+
+copyContactEmail.addEventListener('click', async () => {
+  copyContactEmail.disabled = true;
+  try {
+    await navigator.clipboard.writeText(document.getElementById('dialogEmail').textContent.trim());
+    if (contactDialog.open) {
+      copyContactEmail.textContent = 'Copied!';
+      emailCopyStatus.textContent = 'Email address copied.';
+    }
+  } catch {
+    if (contactDialog.open) emailCopyStatus.textContent = 'Copy was unavailable. Select the email address above to copy it manually.';
+  } finally {
+    copyContactEmail.disabled = false;
+  }
+});
+
 /* Contact form elements used for submission feedback */
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
