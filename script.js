@@ -163,6 +163,7 @@ document.getElementById('projectSortControl').hidden = false;
 /* Turn the secondary project icon into a share action instead of another repository link. */
 document.querySelectorAll('.project-arrow').forEach(shareButton => {
   const projectLink = shareButton.closest('.project-link');
+  projectLink.querySelector('.project-link-label')?.remove();
   projectLink.querySelector('.project-link-icons').removeAttribute('aria-hidden');
   const projectTitle = shareButton.closest('.project-card').querySelector('h3').textContent.trim();
   shareButton.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.3 11 7.4-4.5M8.3 13l7.4 4.5"/></svg>';
