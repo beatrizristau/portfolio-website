@@ -117,7 +117,8 @@ h2 em { color: var(--accent); font: 600 1.12em/1 var(--script); letter-spacing: 
 .project-link-icons { display: flex; flex-shrink: 0; gap: 8px; }
 .project-icon { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid rgb(255 255 255 / 12%); border-radius: 50%; background: rgb(255 255 255 / 8%); transition: background 180ms; }
 .project-icon svg { width: 16px; height: 16px; fill: currentColor; }
-.project-arrow { font: 20px/1 sans-serif; }
+.project-arrow { cursor: pointer; }
+.project-arrow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
 .project-link:hover .project-icon { background: rgb(255 255 255 / 20%); }
 .project-link:hover .project-link-label { text-decoration-color: currentColor; }
 .experience-heading { padding-bottom: 32px; border-bottom: 1px solid var(--line); margin-bottom: 48px; }
