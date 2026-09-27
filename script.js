@@ -6,7 +6,6 @@ const scrollProgress = document.getElementById('scrollProgress');
 const sectionLinks = [...navLinks.querySelectorAll('a')];
 const sections = sectionLinks.map(link => document.querySelector(link.hash));
 const mobileViewport = window.matchMedia('(max-width: 760px)');
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 /* Enable JavaScript-specific styles and set content that changes over time */
 document.documentElement.classList.add('js');
@@ -82,53 +81,6 @@ window.addEventListener('resize', scheduleScroll);
 window.addEventListener('pageshow', scheduleScroll);
 new ResizeObserver(scheduleScroll).observe(document.body);
 updateScroll();
-
-/* Hero video controls and reduced-motion support */
-const video = document.getElementById('heroVideo');
-const videoToggle = document.getElementById('videoToggle');
-let motionRequested = !reducedMotion.matches;
-let videoVisible = true;
-videoToggle.hidden = false;
-
-/* Keep the video button label and icon in sync with the playback state */
-function updateVideoButton() {
-  const paused = video.paused;
-  document.getElementById('videoToggleText').textContent = paused ? 'Play motion' : 'Pause motion';
-  document.getElementById('videoToggleIcon').textContent = paused ? '▷' : 'Ⅱ';
-  videoToggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
-}
-
-/* Play motion only when requested, visible, and allowed by the active tab */
-function syncVideo() {
-  if (motionRequested && videoVisible && !document.hidden) {
-    video.play().catch(updateVideoButton);
-  } else video.pause();
-}
-video.addEventListener('play', updateVideoButton);
-video.addEventListener('pause', updateVideoButton);
-
-/* Let the visitor manually play or pause the hero video */
-videoToggle.addEventListener('click', () => {
-  motionRequested = video.paused;
-  syncVideo();
-});
-
-/* Respond when the visitor changes their reduced-motion preference */
-reducedMotion.addEventListener('change', () => {
-  motionRequested = !reducedMotion.matches;
-  syncVideo();
-});
-
-/* Pause the video when the tab or video leaves view, then resume when appropriate */
-document.addEventListener('visibilitychange', syncVideo);
-new IntersectionObserver(entries => {
-  videoVisible = entries[0].isIntersecting;
-  syncVideo();
-}, { threshold: 0 }).observe(video);
-
-/* Hide the playback control if the video file cannot be loaded */
-video.addEventListener('error', () => { videoToggle.hidden = true; });
-video.querySelector('source').addEventListener('error', () => { videoToggle.hidden = true; });
 
 /* Contact form elements used for submission feedback */
 const contactForm = document.getElementById('contactForm');

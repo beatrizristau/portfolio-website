@@ -17,23 +17,25 @@ Then visit http://127.0.0.1:8000.
 ## Features
 
 - Responsive layouts and accessible mobile navigation
-- Sticky navigation with a terracotta scroll progress bar and active section links
-- Muted video loop with pause/play, reduced-motion support, and a poster fallback
+- Floating glass navigation with a champagne scroll progress bar and active section links
+- Full-bleed portrait hero with responsive cropping and reduced-motion support
 - Categorized skills, project repository links, and work experience
 - Existing Formspree contact integration with inline status and error feedback
 - Labeled form fields, keyboard focus indicators, and a skip link
 
 ## Design
 
-The palette uses warm off-white (`#F5F4F0`), soft black (`#171715`), and restrained terracotta accents (`#A16F4C`). Inter loads through Google Fonts with a system sans-serif fallback; metadata uses system monospace fonts. Shared design tokens live at the top of `styles.css`.
+The design uses studio red (`#EC0A05`), white, and champagne (`#F3D99E`), with dark translucent surfaces. Dancing Script supplies the signature and heading accents, Playfair Display the editorial headings, Plus Jakarta Sans the body text, and JetBrains Mono the navigation and metadata. Fonts load through Google Fonts with local fallbacks. Shared design tokens live at the top of `styles.css`.
+
+The supplied portrait is stored locally in `assets/portrait.png`. Desktop presents it as a full-bleed studio image; mobile uses a separate crop and gradient fade to keep the introduction readable. Existing biography, skills, projects, experience, and contact destinations are retained.
 
 ## Files
 
 - `index.html` — page content and semantic structure
 - `styles.css` — design tokens and responsive styling
-- `script.js` — navigation, scroll progress, video, and contact behavior
-- `assets/` — hero video, poster, and favicon
-- `imgs/` — existing portrait and TechOS screenshot
+- `script.js` — navigation, scroll progress, and contact behavior
+- `assets/` — current portrait, favicon, and previous media assets
+- `imgs/` — TechOS screenshot
 
 ## Contact
 
