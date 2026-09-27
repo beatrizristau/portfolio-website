@@ -67,7 +67,7 @@ h1 span { display: block; padding-left: 49px; }
 
 /* Editorial sections share a single, restrained red palette. */
 .content-section { padding-block: 86px 116px; border-bottom: 1px solid var(--line); }
-.section-kicker { display: flex; justify-content: space-between; gap: 20px; margin-bottom: 47px; color: rgb(255 255 255 / 85%); font: 700 14px var(--mono); -webkit-text-stroke: .2px currentColor; letter-spacing: .13em; text-transform: uppercase; }
+.section-kicker { position: relative; top: -36px; display: flex; justify-content: space-between; gap: 20px; margin-bottom: 47px; color: rgb(255 255 255 / 85%); font: 700 14px var(--mono); -webkit-text-stroke: .2px currentColor; letter-spacing: .13em; text-transform: uppercase; }
 .section-kicker span:last-child { font-size: 13px; opacity: 1; }
 h2 { font: 400 clamp(38px, 4.1vw, 62px)/1.16 var(--serif); letter-spacing: -.035em; }
 h2 em { color: var(--accent); font: 600 1.12em/1 var(--script); letter-spacing: -.03em; }
