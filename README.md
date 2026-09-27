@@ -19,7 +19,8 @@ Then visit http://127.0.0.1:8000.
 - Responsive layouts and accessible mobile navigation
 - Floating glass navigation with a champagne scroll progress bar and active section links
 - Full-bleed portrait hero with responsive cropping and reduced-motion support
-- Categorized skills, project repository links, and work experience
+- Filterable skill categories with name-only technology cards and keyboard-accessible tabs
+- Project repository links and work experience
 - Existing Formspree contact integration with inline status and error feedback
 - Labeled form fields, keyboard focus indicators, and a skip link
 

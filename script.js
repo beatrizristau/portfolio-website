@@ -82,6 +82,46 @@ window.addEventListener('pageshow', scheduleScroll);
 new ResizeObserver(scheduleScroll).observe(document.body);
 updateScroll();
 
+/* Accessible skills tabs: all categories remain available without JavaScript. */
+const skillTabs = document.getElementById('skillTabs');
+const skillButtons = [...skillTabs.querySelectorAll('[role="tab"]')];
+const skillPanel = document.getElementById('skills-panel');
+const skillCategories = [...skillPanel.querySelectorAll('[data-skill-category]')];
+
+function selectSkillTab(button) {
+  const category = button.dataset.skillFilter;
+  for (const tab of skillButtons) {
+    const selected = tab === button;
+    tab.setAttribute('aria-selected', String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+  }
+  for (const group of skillCategories) {
+    group.hidden = category !== 'all' && group.dataset.skillCategory !== category;
+  }
+  skillPanel.setAttribute('aria-labelledby', button.id);
+  scheduleScroll();
+}
+
+skillButtons.forEach((button, index) => {
+  button.addEventListener('click', () => selectSkillTab(button));
+  button.addEventListener('keydown', event => {
+    let nextIndex;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % skillButtons.length;
+    else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + skillButtons.length) % skillButtons.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = skillButtons.length - 1;
+    else return;
+    event.preventDefault();
+    const nextTab = skillButtons[nextIndex];
+    selectSkillTab(nextTab);
+    nextTab.focus();
+  });
+});
+skillPanel.setAttribute('role', 'tabpanel');
+skillPanel.tabIndex = 0;
+selectSkillTab(skillButtons[0]);
+skillTabs.hidden = false;
+
 /* Contact form elements used for submission feedback */
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');

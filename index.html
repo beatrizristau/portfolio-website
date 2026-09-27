@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=legibility-6">
-  <script src="script.js?v=redesign-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=skill-tabs-7">
+  <script src="script.js?v=skill-tabs-7" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -63,14 +63,45 @@
     <section id="skills" class="content-section page-shell" aria-labelledby="skills-title">
       <p class="section-kicker"><span>[ 02 // Technical toolkit ]</span><span>The tools behind the work</span></p>
       <div class="section-heading"><h2 id="skills-title">A considered <em>toolkit.</em></h2></div>
-      <div class="skills-grid">
-        <article class="skill-card"><h3>Languages</h3><ul class="skill-list"><li>Java</li><li>JavaScript</li><li>Python</li><li>C</li><li>Object-oriented programming</li></ul></article>
-        <article class="skill-card skill-card-wide"><h3>Frameworks & libraries</h3><ul class="skill-list"><li>Spring Boot</li><li>Spring Web</li><li>Spring Data JPA</li><li>Spring Security</li><li>Spring Cloud</li><li>Spring Cloud Netflix</li><li>Spring AOP</li><li>Hibernate</li><li>React.js</li><li>Node.js</li><li>Bootstrap</li></ul></article>
-        <article class="skill-card"><h3>Databases</h3><ul class="skill-list"><li>MySQL</li><li>PostgreSQL</li><li>Spanner DB</li></ul></article>
-        <article class="skill-card"><h3>Cloud & DevOps</h3><ul class="skill-list"><li>Docker</li><li>Google Cloud Platform</li><li>AWS EC2</li><li>AWS S3</li></ul></article>
-        <article class="skill-card"><h3>Messaging</h3><ul class="skill-list"><li>Apache Kafka</li><li>Google Pub/Sub</li></ul></article>
-        <article class="skill-card"><h3>Tools & versioning</h3><ul class="skill-list"><li>Git</li><li>GitHub</li></ul></article>
-        <article class="skill-card"><h3>Ways of working</h3><ul class="skill-list"><li>Scrum</li><li>JIRA</li></ul></article>
+      <div class="skill-tabs" id="skillTabs" role="tablist" aria-label="Skill categories" hidden>
+        <button class="skill-tab" id="skill-tab-all" type="button" role="tab" aria-controls="skills-panel" aria-selected="true" tabindex="0" data-skill-filter="all">All skills</button>
+        <button class="skill-tab" id="skill-tab-backend" type="button" role="tab" aria-controls="skills-panel" aria-selected="false" tabindex="-1" data-skill-filter="backend">Backend</button>
+        <button class="skill-tab" id="skill-tab-frontend" type="button" role="tab" aria-controls="skills-panel" aria-selected="false" tabindex="-1" data-skill-filter="frontend">Frontend</button>
+        <button class="skill-tab" id="skill-tab-languages" type="button" role="tab" aria-controls="skills-panel" aria-selected="false" tabindex="-1" data-skill-filter="languages">Languages</button>
+        <button class="skill-tab" id="skill-tab-databases" type="button" role="tab" aria-controls="skills-panel" aria-selected="false" tabindex="-1" data-skill-filter="databases">Databases</button>
+        <button class="skill-tab" id="skill-tab-cloud" type="button" role="tab" aria-controls="skills-panel" aria-selected="false" tabindex="-1" data-skill-filter="cloud">Cloud &amp; DevOps</button>
+        <button class="skill-tab" id="skill-tab-messaging" type="button" role="tab" aria-controls="skills-panel" aria-selected="false" tabindex="-1" data-skill-filter="messaging">Messaging</button>
+        <button class="skill-tab" id="skill-tab-tools" type="button" role="tab" aria-controls="skills-panel" aria-selected="false" tabindex="-1" data-skill-filter="tools">Tools</button>
+      </div>
+      <div class="skill-panels" id="skills-panel">
+        <section class="skill-category" data-skill-category="backend" aria-labelledby="skill-heading-backend">
+          <h3 id="skill-heading-backend"><span aria-hidden="true">+</span>Backend</h3>
+          <ul class="skill-list"><li>Spring Boot</li><li>Spring Framework</li><li>Hibernate</li><li>Node.js</li></ul>
+        </section>
+        <section class="skill-category" data-skill-category="frontend" aria-labelledby="skill-heading-frontend">
+          <h3 id="skill-heading-frontend"><span aria-hidden="true">+</span>Frontend</h3>
+          <ul class="skill-list"><li>React</li><li>Bootstrap</li></ul>
+        </section>
+        <section class="skill-category" data-skill-category="languages" aria-labelledby="skill-heading-languages">
+          <h3 id="skill-heading-languages"><span aria-hidden="true">+</span>Languages</h3>
+          <ul class="skill-list"><li>Java</li><li>JavaScript</li><li>Python</li><li>C</li></ul>
+        </section>
+        <section class="skill-category" data-skill-category="databases" aria-labelledby="skill-heading-databases">
+          <h3 id="skill-heading-databases"><span aria-hidden="true">+</span>Databases</h3>
+          <ul class="skill-list"><li>PostgreSQL</li><li>MySQL</li><li>Cloud Spanner</li></ul>
+        </section>
+        <section class="skill-category" data-skill-category="cloud" aria-labelledby="skill-heading-cloud">
+          <h3 id="skill-heading-cloud"><span aria-hidden="true">+</span>Cloud &amp; DevOps</h3>
+          <ul class="skill-list"><li>AWS</li><li>Google Cloud Platform</li><li>Docker</li></ul>
+        </section>
+        <section class="skill-category" data-skill-category="messaging" aria-labelledby="skill-heading-messaging">
+          <h3 id="skill-heading-messaging"><span aria-hidden="true">+</span>Messaging</h3>
+          <ul class="skill-list"><li>Apache Kafka</li><li>Google Pub/Sub</li></ul>
+        </section>
+        <section class="skill-category" data-skill-category="tools" aria-labelledby="skill-heading-tools">
+          <h3 id="skill-heading-tools"><span aria-hidden="true">+</span>Tools</h3>
+          <ul class="skill-list"><li>Git</li><li>GitHub</li><li>Jira</li></ul>
+        </section>
       </div>
     </section>
 
