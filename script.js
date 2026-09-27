@@ -162,19 +162,23 @@ document.getElementById('projectSortControl').hidden = false;
 
 /* Direct contact modal, with the contact section as a no-JavaScript fallback. */
 const talkTrigger = document.getElementById('talkTrigger');
+const emailContactTrigger = document.getElementById('emailContactTrigger');
 const contactDialog = document.getElementById('contactDialog');
 const copyContactEmail = document.getElementById('copyContactEmail');
 const emailCopyStatus = document.getElementById('emailCopyStatus');
 
 if (typeof contactDialog.showModal === 'function') {
-  talkTrigger.setAttribute('aria-haspopup', 'dialog');
-  talkTrigger.setAttribute('aria-controls', contactDialog.id);
-  talkTrigger.addEventListener('click', event => {
+  const openContactDialog = event => {
     event.preventDefault();
     emailCopyStatus.textContent = '';
     copyContactEmail.textContent = 'Copy';
     contactDialog.showModal();
     document.documentElement.classList.add('contact-dialog-open');
+  };
+  [talkTrigger, emailContactTrigger].forEach(trigger => {
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    trigger.setAttribute('aria-controls', contactDialog.id);
+    trigger.addEventListener('click', openContactDialog);
   });
 }
 

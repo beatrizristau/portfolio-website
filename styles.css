@@ -18,7 +18,7 @@ button, input, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
 button:disabled { cursor: wait; opacity: .65; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; transition: outline-offset 180ms ease; }
 img { display: block; max-width: 100%; }
 h1, h2, h3, p, figure { margin: 0; }
 [hidden] { display: none !important; }
@@ -150,7 +150,7 @@ h2 em { color: var(--accent); font: 600 1.12em/1 var(--script); letter-spacing: 
 .experience-item .project-tags { padding-top: 20px; border-top: 1px solid var(--line); }
 .experience-item .project-tags li { border-color: rgb(255 255 255 / 10%); border-radius: 6px; background: rgb(255 255 255 / 7%); font-size: 12px; line-height: 1.5; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 65px; }
-.contact-copy > p { margin: 26px 0 27px; color: rgb(255 255 255 / 85%); font-size: 14px; font-weight: 500; line-height: 1.85; }
+.contact-copy > p { margin: 26px 0 27px; color: rgb(255 255 255 / 85%); font-size: 16px; font-weight: 500; line-height: 1.85; }
 .contact-email { display: inline-flex; gap: 12px; padding-bottom: 9px; border-bottom: 1px solid var(--line); font-size: 12px; overflow-wrap: anywhere; }
 .hero-socials { display: flex; gap: 10px; margin-top: 28px; }
 .hero-socials a { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: rgb(255 255 255 / 8%); transition: transform 180ms, background 180ms; }
@@ -159,8 +159,9 @@ h2 em { color: var(--accent); font: 600 1.12em/1 var(--script); letter-spacing: 
 .contact-form { padding: 32px; background: rgb(65 0 0 / 27%); border: 1px solid var(--line); border-radius: 14px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-field { display: flex; flex-direction: column; gap: 10px; margin-bottom: 23px; }
-.form-field label { font-size: 10px; font-weight: 500; color: rgb(255 255 255 / 90%); }
+.form-field label { font-size: 13px; font-weight: 500; color: rgb(255 255 255 / 90%); }
 .form-field input, .form-field textarea { width: 100%; min-width: 0; border: 1px solid var(--line); background: rgb(65 0 0 / 12%); border-radius: 6px; padding: 12px; color: white; font-size: 12px; line-height: 1.6; }
+.form-field input:focus-visible, .form-field textarea:focus-visible { outline-offset: 2px; }
 .form-field input::placeholder, .form-field textarea::placeholder { color: rgb(255 255 255 / 70%); opacity: 1; }
 .form-field textarea { resize: vertical; min-height: 110px; }
 .form-status { margin-top: 15px; color: white; font-size: 12px; line-height: 1.7; }
