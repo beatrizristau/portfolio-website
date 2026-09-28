@@ -17,7 +17,7 @@ Then visit http://127.0.0.1:8000.
 ## Features
 
 - Responsive layouts and accessible mobile navigation
-- Floating glass navigation with a champagne scroll progress bar and active section links
+- Floating glass navigation with a blue scroll progress bar and active section links
 - Full-bleed portrait hero with responsive cropping and reduced-motion support
 - Filterable skill categories with name-only technology cards and keyboard-accessible tabs
 - Project cards with newest-first or oldest-first year sorting, repository links, and work experience
@@ -26,9 +26,9 @@ Then visit http://127.0.0.1:8000.
 
 ## Design
 
-The design uses studio red (`#EC0A05`), white, and champagne (`#F3D99E`), with dark translucent surfaces. Dancing Script supplies the signature and heading accents, Playfair Display the editorial headings, Plus Jakarta Sans the body text, and JetBrains Mono the navigation and metadata. Fonts load through Google Fonts with local fallbacks. Shared design tokens live at the top of `styles.css`.
+The design uses a light-blue portrait hero (`#B7E6FD`) with dark text, deep navy sections (`#090C15`), and blue accents (`#60A5FA`) on subtly lighter navy cards. Dancing Script supplies the signature and heading accents, Playfair Display the editorial headings, Plus Jakarta Sans the body text, and JetBrains Mono the navigation and metadata. Fonts load through Google Fonts with local fallbacks. Shared design tokens live at the top of `styles.css`.
 
-The supplied portrait is stored locally in `assets/portrait.png`. Desktop presents it as a full-bleed studio image; mobile uses a separate crop and gradient fade to keep the introduction readable. Existing biography, skills, projects, experience, and contact destinations are retained.
+The supplied portrait is stored locally in `assets/portrait-blue.png`. Desktop presents it as a full-bleed studio image; mobile uses a separate crop and gradient fade to keep the introduction readable. Existing biography, skills, projects, experience, and contact destinations are retained.
 
 ## Files
 
