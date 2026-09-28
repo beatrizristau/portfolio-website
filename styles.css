@@ -91,9 +91,9 @@ h2 em { color: var(--accent); font: 600 1.12em/1 var(--script); letter-spacing: 
 .skill-list li { display: flex; align-items: center; width: fit-content; max-width: 100%; min-height: 58px; padding: 13px 17px; border: 1px solid rgb(255 255 255 / 16%); background: rgb(65 0 0 / 22%); border-radius: 16px; font-size: 16px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
 .project-tags { padding: 0; margin: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 7px; }
 .projects-heading { padding-bottom: 30px; border-bottom: 1px solid var(--line); margin-bottom: 48px; }
-.project-sort { flex: 0 0 auto; width: 230px; max-width: 100%; }
+.project-sort { flex: 0 0 auto; width: max-content; max-width: 100%; }
 .project-sort-field { position: relative; }
-.project-sort button { display: block; width: 100%; height: 48px; padding: 0 16px 0 42px; border: 1px solid var(--line); border-radius: 14px; background: var(--glass); color: var(--ink); font: 500 13px/1.5 'Plus Jakarta Sans', system-ui, sans-serif; text-align: left; cursor: pointer; transition: border-color 180ms, background 180ms; }
+.project-sort button { display: block; width: max-content; max-width: 100%; height: 48px; padding: 0 16px 0 42px; border: 1px solid var(--line); border-radius: 14px; background: var(--glass); color: var(--ink); font: 500 13px/1.5 'Plus Jakarta Sans', system-ui, sans-serif; text-align: left; white-space: nowrap; cursor: pointer; transition: border-color 180ms, background 180ms; }
 .project-sort button:hover, .project-sort button:focus-visible { border-color: var(--accent); background: rgb(65 0 0 / 27%); }
 .project-sort-field svg { position: absolute; top: 50%; width: 17px; height: 17px; transform: translateY(-50%); fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
 .project-sort-icon { left: 15px; }
