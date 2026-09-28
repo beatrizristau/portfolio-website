@@ -214,14 +214,16 @@ html.contact-dialog-open { overflow: hidden; }
 @media (max-width: 760px) {
   html { scroll-padding-top: 98px; }
   .page-shell { width: calc(100% - 40px); }
-  .header-inner, .site-header.is-scrolled .header-inner { min-height: 82px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0; }
+  .header-inner, .site-header.is-scrolled .header-inner { min-height: 82px; display: flex; justify-content: space-between; gap: 0; }
+  .brand { flex: 0 0 auto; min-width: max-content; }
+  .nav-toggle { flex: 0 0 44px; }
   .brand-monogram { font-size: 36px; }
   .brand-caption { font-size: 7px; }
   .nav-toggle:not([hidden]) { display: flex; flex-direction: column; justify-content: center; gap: 6px; align-items: center; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: rgb(85 0 0 / 20%); backdrop-filter: blur(16px); }
   .nav-toggle span { width: 16px; height: 1px; background: white; transition: transform 180ms; }
   .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
-  .nav-links { width: 100%; flex-wrap: wrap; justify-content: center; margin-bottom: 14px; gap: 4px; border-radius: 16px; background: rgb(105 3 0 / 95%); }
+  .nav-links { position: fixed; top: 92px; left: 20px; right: 20px; width: auto; flex-wrap: wrap; justify-content: center; margin: 0; gap: 4px; border-radius: 16px; background: rgb(105 3 0 / 95%); box-shadow: 0 12px 30px rgb(70 0 0 / 22%); }
   .nav-links a { font-size: 10px; padding: 14px 12px; }
   .js .nav-links { display: none; }
   .js .nav-links.is-open { display: flex; }
