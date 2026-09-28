@@ -47,16 +47,16 @@ h1, h2, h3, p, figure { margin: 0; }
 
 .hero { background: var(--hero-bg); color: var(--hero-ink); position: relative; min-height: 680px; height: 100svh; overflow: hidden; isolation: isolate; }
 .hero-portrait { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; z-index: -3; }
-.hero-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgb(183 230 253 / 96%), rgb(183 230 253 / 70%) 22%, transparent 48%), linear-gradient(0deg, rgb(183 230 253 / 65%), transparent 22%); }
+.hero-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgb(9 12 21 / 34%), rgb(9 12 21 / 18%) 30%, transparent 52%), linear-gradient(0deg, rgb(183 230 253 / 65%), transparent 22%); }
 .hero-topnote { position: absolute; right: 56px; top: 155px; font: 8px/1.9 var(--mono); letter-spacing: .16em; text-align: right; opacity: .85; }
-.hero-copy { position: absolute; bottom: 91px; left: max(56px, calc((100vw - 1280px) / 2)); max-width: 390px; }
+.hero-copy { position: absolute; bottom: 91px; left: max(56px, calc((100vw - 1280px) / 2)); max-width: 390px; color: white; }
 .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; margin-bottom: 13px; }
-h1 { font: 700 clamp(76px, 7.4vw, 116px)/.85 var(--script); letter-spacing: -.035em; text-shadow: 0 6px 30px rgb(16 37 57 / 10%); margin-left: -5px; }
+h1 { font: 700 clamp(76px, 7.4vw, 116px)/.85 var(--script); letter-spacing: -.035em; text-shadow: 0 6px 30px rgb(16 37 57 / 30%); margin-left: -5px; }
 h1 span { display: block; padding-left: 49px; }
 .hero-role { font-size: 16px; font-weight: 600; margin: 28px 0 12px; letter-spacing: .015em; }
-.hero-description { max-width: 365px; color: var(--hero-ink); font-size: 15px; line-height: 1.8; }
+.hero-description { max-width: 365px; color: rgb(255 255 255 / 92%); font-size: 15px; line-height: 1.8; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 25px; }
-.button { min-height: 46px; padding: 0 23px; border: 1px solid transparent; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; gap: 17px; font-size: 11px; font-weight: 600; transition: transform 180ms, background 180ms, box-shadow 180ms; }
+.button { min-height: 46px; padding: 0 23px; border: 1px solid transparent; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; gap: 17px; font-size: 12px; font-weight: 600; transition: transform 180ms, background 180ms, box-shadow 180ms; }
 .button-primary { background: var(--accent); color: var(--bg); }
 .button-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgb(9 12 21 / 20%); }
 .button-glass { background: rgb(183 230 253 / 65%); border-color: rgb(16 37 57 / 45%); color: var(--hero-ink); backdrop-filter: blur(20px); }
