@@ -64,7 +64,7 @@ h1 span { display: block; padding-left: 49px; }
 .hero .button-primary { background: var(--hero-ink); color: var(--hero-bg); }
 .hero :focus-visible { outline-color: var(--hero-ink); }
 .button span { font-size: 18px; font-weight: 400; }
-.hero-scroll { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; flex-direction: column; gap: 9px; font: 10px var(--mono); letter-spacing: .18em; }
+.hero-scroll { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; flex-direction: column; gap: 9px; font: 700 11px var(--mono); letter-spacing: .18em; }
 .hero-scroll > span:last-child { font: 20px/1 sans-serif; animation: scroll-arrow-bounce 1.5s ease-in-out infinite; }
 @keyframes scroll-arrow-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
 .hero-signature { position: absolute; bottom: 46px; right: 56px; display: flex; align-items: center; gap: 17px; font: 7px/2 var(--mono); letter-spacing: .13em; }
@@ -235,7 +235,7 @@ html.contact-dialog-open { overflow: hidden; }
   .js .nav-links.is-open { display: flex; }
   .hero { min-height: 820px; height: 100svh; }
   .hero-portrait { object-fit: cover; width: 100%; height: 72%; object-position: 54% top; mask-image: linear-gradient(#000 65%, transparent 100%); }
-  .hero-shade { background: linear-gradient(0deg, var(--hero-bg) 0%, var(--hero-bg) 24%, rgb(183 230 253 / 94%) 39%, transparent 66%); }
+  .hero-shade { background: linear-gradient(0deg, rgb(9 12 21 / 92%) 0%, rgb(9 12 21 / 78%) 28%, rgb(9 12 21 / 42%) 52%, transparent 76%); }
   .hero-copy { left: 24px; bottom: 80px; max-width: 400px; right: 24px; }
   .eyebrow { font-size: 11px; margin-bottom: 13px; }
   h1 { font-size: clamp(64px, 13vw, 91px); line-height: 1; }
@@ -245,9 +245,9 @@ html.contact-dialog-open { overflow: hidden; }
   .hero-actions { margin-top: 21px; }
   .hero-topnote, .hero-signature { display: none; }
   .hero-scroll { bottom: 23px; }
-  .hero-scroll > span:first-child { font-size: 8px; }
+  .hero-scroll > span:first-child { font-size: 10px; font-weight: 700; }
   .content-section { padding-block: 56px 74px; }
-  .section-kicker { margin-bottom: 32px; font-size: 11px; }
+  .section-kicker { display: none; }
   .section-kicker span:last-child { display: none; }
   h2 { font-size: clamp(38px, 7vw, 50px); }
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 34px; }
@@ -284,7 +284,7 @@ html.contact-dialog-open { overflow: hidden; }
   .hero { min-height: 740px; }
   .hero-portrait { height: 67%; }
   .hero-copy { left: 20px; right: 20px; bottom: 78px; }
-  .hero-shade { background: linear-gradient(0deg, var(--hero-bg) 0%, var(--hero-bg) 32%, rgb(183 230 253 / 90%) 43%, transparent 70%); }
+  .hero-shade { background: linear-gradient(0deg, rgb(9 12 21 / 92%) 0%, rgb(9 12 21 / 78%) 34%, rgb(9 12 21 / 42%) 56%, transparent 78%); }
   .button { padding-inline: 18px; gap: 13px; }
   .skill-category { padding: 20px; }
   .project-card { padding: 22px; }
