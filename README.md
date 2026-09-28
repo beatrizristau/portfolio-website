@@ -18,25 +18,27 @@ Then visit http://127.0.0.1:8000.
 
 - Responsive layouts and accessible mobile navigation
 - Floating glass navigation with a blue scroll progress bar and active section links
-- Full-bleed portrait hero with responsive cropping and reduced-motion support
+- Full-bleed portrait hero with responsive cropping, high-contrast introduction text, and an animated scroll cue
+- Mobile-specific dark gradient overlay, simplified section headings, and touch-friendly spacing
 - Filterable skill categories with name-only technology cards and keyboard-accessible tabs
-- Project cards with newest-first or oldest-first year sorting, repository links, and work experience
-- Existing Formspree contact integration with inline status and error feedback
+- Project cards with newest-first or oldest-first year sorting, repository links, and native sharing or clipboard fallback
+- Accessible contact dialog with email copy action and a Formspree contact form with inline status and error feedback
 - Labeled form fields, keyboard focus indicators, and a skip link
 
 ## Design
 
-The design uses a light-blue portrait hero (`#B7E6FD`) with dark text, deep navy sections (`#090C15`), and blue accents (`#60A5FA`) on subtly lighter navy cards. Dancing Script supplies the signature and heading accents, Playfair Display the editorial headings, Plus Jakarta Sans the body text, and JetBrains Mono the navigation and metadata. Fonts load through Google Fonts with local fallbacks. Shared design tokens live at the top of `styles.css`.
+The design uses a light-blue portrait hero (`#B7E6FD`) with a dark navy gradient overlay and light, high-contrast introduction text. Deep navy sections (`#090C15`), lighter navy cards, and blue accents (`#60A5FA`) create the updated palette. Dancing Script supplies the signature and heading accents, Playfair Display the editorial headings, Plus Jakarta Sans the body text, and JetBrains Mono the navigation and metadata. Fonts load through Google Fonts with local fallbacks. Shared design tokens live at the top of `styles.css`.
 
-The supplied portrait is stored locally in `assets/portrait-blue.png`. Desktop presents it as a full-bleed studio image; mobile uses a separate crop and gradient fade to keep the introduction readable. Existing biography, skills, projects, experience, and contact destinations are retained.
+The supplied portrait is stored locally in `assets/portrait-blue.png`. Desktop presents it as a full-bleed studio image; mobile uses a separate crop and darker gradient fade to keep the introduction readable. Skill cards use a compact 14px label style to match the rest of the portfolio. The favicon uses the dark navy background, light-blue monogram, and blue accent dot.
 
 ## Files
 
 - `index.html` — page content and semantic structure
 - `styles.css` — design tokens and responsive styling
 - `script.js` — navigation, scroll progress, and contact behavior
-- `assets/` — current portrait, favicon, and previous media assets
-- `imgs/` — TechOS screenshot
+- `assets/portrait-blue.png` — hero portrait
+- `assets/favicon.svg` — palette-matched favicon
+- `assets/hero_screenshot.png` — portfolio preview image
 
 ## Contact
 
